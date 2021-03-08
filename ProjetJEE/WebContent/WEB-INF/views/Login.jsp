@@ -10,8 +10,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Css -->
-  <link rel='stylesheet'  href='css/login.css' type='text/css' media='all' />
-  <link href="css/fonts.css" rel="stylesheet" type="text/css"  media="all" />
+  <link rel='stylesheet'  href='../../resources/css/login.css' type='text/css' media='all' />
+  <link href="../../resources/css/fonts.css" rel="stylesheet" type="text/css"  media="all" />
 
 </head>
 <body>
