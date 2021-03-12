@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <head>
-  <!-- Metas -->
+  <!-- Meta -->
   <meta charset="utf-8">
   <title>Log in - Musiqua</title>
   <meta name="description" content="">
@@ -125,6 +125,5 @@
     </div>
   </div>
 </section>
-
 </body>
 </html>

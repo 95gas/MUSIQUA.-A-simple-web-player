@@ -51,13 +51,13 @@
 }
 
 /*double arrow in home page*/
-a.fas{
+a i.fas{
  position: relative;
  font-size: 6rem;
  color: #e50909;
 }
 
-a.fas:hover{
+a i.fas:hover{
  position: relative;
  font-size: 6rem;
  color: black;
