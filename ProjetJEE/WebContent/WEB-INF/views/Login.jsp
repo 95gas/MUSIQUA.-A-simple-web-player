@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+html>
 <head>
   <!-- Metas -->
   <meta charset="utf-8">
@@ -11,7 +11,7 @@
 
   <!-- Css -->
   <link rel='stylesheet'  href='../../resources/css/login.css' type='text/css' media='all' />
-  <link href="../../resources/css/fonts.css" rel="stylesheet" type="text/css"  media="all" />
+  <link href="css/fonts.css" rel="stylesheet" type="text/css"  media="all" />
 
 </head>
 <body>
@@ -74,7 +74,7 @@
           <label for="login-username" >
             Email address
           </label>
-          <input type="text" class="form-control" name="username" id="login-username" placeholder="Email address or username" required="" sp-disallow-chars=":%&amp;'`Â´&quot;" sp-disallow-chars-model="usernameDisallowedChars" autocapitalize="off">
+          <input type="text" class="form-control" name="username" id="login-username" placeholder="Email address or username" required="" sp-disallow-chars=":%&amp;'`´&quot;" sp-disallow-chars-model="usernameDisallowedChars" autocapitalize="off">
         </div>
       </div>
 
