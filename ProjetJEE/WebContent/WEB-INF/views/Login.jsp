@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-html>
 <head>
   <!-- Metas -->
   <meta charset="utf-8">
@@ -11,7 +10,7 @@ html>
 
   <!-- Css -->
   <link rel='stylesheet'  href='../../resources/css/login.css' type='text/css' media='all' />
-  <link href="css/fonts.css" rel="stylesheet" type="text/css"  media="all" />
+  <!-- link href="css/fonts.css" rel="stylesheet" type="text/css"  media="all" / -->
 
 </head>
 <body>
