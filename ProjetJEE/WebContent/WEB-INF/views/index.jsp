@@ -2,7 +2,6 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <!-- Metas -->
   <meta charset="utf-8">
@@ -10,11 +9,11 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Css and fonts-->
-  <link href="../../resourses/css/main.css" rel="stylesheet" type="text/css" media="all"/>
-  <link href="../../resourses/css/index.css" rel="stylesheet" type="text/css" media="all"/>
-  <link href="css/fonts.css" rel="stylesheet" type="text/css"  media="all" />
-  <link href="font/FontAwesome/css/all.css" rel="stylesheet" type="text/css"  media="all" />
+  <!-- Css and fonts -->
+  <link href="resources/css/main.css" rel="stylesheet" type="text/css" media="all"/>
+  <link href="resources/css/index.css" rel="stylesheet" type="text/css" media="all"/>
+  <link href="resources/css/fonts.css" rel="stylesheet" type="text/css"  media="all"/>
+  <link href="resources/font/FontAwesome/css/all.css" rel="stylesheet" type="text/css"  media="all"/>
   <link rel='stylesheet'  href="http://fonts.googleapis.com/css?family=Open+Sans%7CLekton%7CPT+Sans%7CLibre+Baskerville%7CMontserrat%7CKarla%7CRaleway%7CLora%7CLato%7CMerriweather+Sans%7CAbel&amp;ver=154954535" type='text/css' media='all' />
 </head>
 
@@ -50,7 +49,7 @@
     <header class="header default">
       <div class=" left-part">
         <a class="logo scroll" href="#welcome">
-          <h2 class="mb-0 uppercase">musiqua:</h2>
+          <h2 class="mb-0 uppercase">musiqua</h2>
         </a>
       </div>
       <div class="right-part">
@@ -58,9 +57,9 @@
           <ul class="main-menu list-inline">
             <li><a class="scroll list-inline-item" href="#welcome">Home</a></li>
             <li class="block-helper">
-              <a href="log-in.html" class="scroll"><span><i class="icon-user"></i></span></a>
+              <a href="log-in.jps" class="scroll"><span><i class="icon-user"></i></span></a>
             </li>
-            <li><a class="scroll list-inline-item" href="Albums.html">Music Library</a></li>
+            <li><a class="scroll list-inline-item" href="Albums.jps">Music Library</a></li>
           </ul>
         </nav>
       </div>
@@ -75,7 +74,7 @@
       <i class="fa fa-plus"></i>
       <i class="fa fa-minus"></i>
     </a>
-    <div id="mesh-main-player" class="jp-jplayer" data-audio-src="assets/audio/flute.mp3" data-title="See right through ft. Fiora" data-artist="Tensnake"></div>
+    <div id="mesh-main-player" class="jp-jplayer" data-audio-src="resources/audio/flute.mp3" data-title="See right through ft. Fiora" data-artist="Tensnake"></div>
 
     <div id="mesh-main-player-content" class="mesh-main-player" role="application" aria-label="media player">
       <div class="container">
@@ -111,7 +110,7 @@
           </div>
           <div class="right-player-side">
             <div class="mesh-thumbnail">
-              <img src="assets/img/content/cover3.jpg" alt="">
+              <img src="resources/img/content/cover3.jpg" alt="">
             </div>
             <div class="mesh-title">
             </div>
@@ -142,8 +141,8 @@
               <span class="about-length">	LENGTH	</span>
             </div>
 
-            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/flute.mp3" data-artist="Tensnake" data-thumbnail="assets/img/content/cover1.jpg" >
-              <audio src="assets/audio/flute.mp3" preload="none" title=" Tensnake - See Right Through Ft. Fiora"></audio>
+            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/flute.mp3" data-artist="Tensnake" data-thumbnail="resources/img/content/cover1.jpg" >
+              <audio src="resources/audio/flute.mp3" preload="none" title=" Tensnake - See Right Through Ft. Fiora"></audio>
               <div class="play-pause-button">
                 <div class="center-y-table">
                   <i class="fa fa-play"></i>
@@ -157,8 +156,8 @@
               <time class="trak-duration" datetime="2016-06-02">	3:19	</time>
             </div>
 
-            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/2.mp3" data-artist="Jack U ft. Kiesza" data-thumbnail="assets/img/content//cover2.jpg" >
-              <audio src="assets/audio/2.mp3" preload="none" title=" Jack U ft. Kiesza - Take You There"></audio>
+            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/2.mp3" data-artist="Jack U ft. Kiesza" data-thumbnail="resources/img/content//cover2.jpg" >
+              <audio src="resources/audio/2.mp3" preload="none" title=" Jack U ft. Kiesza - Take You There"></audio>
               <div class="play-pause-button">
                 <div class="center-y-table">
                   <i class="fa fa-play"></i>
@@ -172,8 +171,8 @@
               <time class="trak-duration" datetime="2016-06-02">3:44</time>
             </div>
 
-            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/3.mp3" data-artist="Bob Sinclair" data-thumbnail="assets/img/content/cover3.jpg" >
-              <audio src="assets/audio/3.mp3" preload="none" title=" Bob Sinclair - Cinderella"></audio>
+            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/3.mp3" data-artist="Bob Sinclair" data-thumbnail="resources/img/content/cover3.jpg" >
+              <audio src="resources/audio/3.mp3" preload="none" title=" Bob Sinclair - Cinderella"></audio>
               <div class="play-pause-button">
                 <div class="center-y-table">
                   <i class="fa fa-play"></i>
@@ -187,8 +186,8 @@
               <time class="trak-duration" datetime="2016-06-02">3:10</time>
             </div>
 
-            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/4.mp3" data-artist="Yuna" data-thumbnail="assets/img/content/cover3.jpg" >
-              <audio src="assets/audio/4.mp3" preload="none" title="Yuna - Lullabies"></audio>
+            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/4.mp3" data-artist="Yuna" data-thumbnail="resources/img/content/cover3.jpg" >
+              <audio src="resources/audio/4.mp3" preload="none" title="Yuna - Lullabies"></audio>
               <div class="play-pause-button">
                 <div class="center-y-table">
                   <i class="fa fa-play"></i>
@@ -202,8 +201,8 @@
               <time class="trak-duration" datetime="2016-06-02">4:14</time>
             </div>
 
-            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/flute.mp3" data-artist=" Tensnake" data-thumbnail="assets/img/content/cover1.jpg" >
-              <audio src="assets/audio/flute.mp3" preload="none" title=" Tensnake - See Right Through Ft. Fiora"></audio>
+            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/flute.mp3" data-artist=" Tensnake" data-thumbnail="resources/img/content/cover1.jpg" >
+              <audio src="resources/audio/flute.mp3" preload="none" title=" Tensnake - See Right Through Ft. Fiora"></audio>
               <div class="play-pause-button">
                 <div class="center-y-table">
                   <i class="fa fa-play"></i>
@@ -217,8 +216,8 @@
               <time class="trak-duration" datetime="2016-06-02">3:19</time>
             </div>
 
-            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/2.mp3" data-artist=" Jack U ft. Kiesza" data-thumbnail="assets/img/content/cover2.jpg" >
-              <audio src="assets/audio/2.mp3" preload="none" title=" Jack U ft. Kiesza - Take You There"></audio>
+            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/2.mp3" data-artist=" Jack U ft. Kiesza" data-thumbnail="resources/img/content/cover2.jpg" >
+              <audio src="resources/audio/2.mp3" preload="none" title=" Jack U ft. Kiesza - Take You There"></audio>
               <div class="play-pause-button">
                 <div class="center-y-table">
                   <i class="fa fa-play"></i>
@@ -232,8 +231,8 @@
               <time class="trak-duration" datetime="2016-06-02">3:44</time>
             </div>
 
-            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/3.mp3" data-artist=" Bob Sinclair" data-thumbnail="assets/img/content/cover3.jpg" >
-              <audio src=".assets/audio/3.mp3" preload="none" title=" Bob Sinclair - Cinderella"></audio>
+            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/3.mp3" data-artist=" Bob Sinclair" data-thumbnail="resources/img/content/cover3.jpg" >
+              <audio src=".resources/audio/3.mp3" preload="none" title=" Bob Sinclair - Cinderella"></audio>
               <div class="play-pause-button">
                 <div class="center-y-table">
                   <i class="fa fa-play"></i>
@@ -247,8 +246,8 @@
               <time class="trak-duration" datetime="2016-06-02">	3:10</time>
             </div>
 
-            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/4.mp3" data-artist="Yuna" data-thumbnail="assets/img/content/cover3.jpg" >
-              <audio src="assets/audio/4.mp3" preload="none" title="Yuna - Lullabies"></audio>
+            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/4.mp3" data-artist="Yuna" data-thumbnail="resources/img/content/cover3.jpg" >
+              <audio src="resources/audio/4.mp3" preload="none" title="Yuna - Lullabies"></audio>
               <div class="play-pause-button">
                 <div class="center-y-table">
                   <i class="fa fa-play"></i>
@@ -262,8 +261,8 @@
               <time class="trak-duration" datetime="2016-06-02">4:14	</time>
             </div>
 
-            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/flute.mp3" data-artist="Tensnake" data-thumbnail="assets/img/content/cover1.jpg" >
-              <audio src="assets/audio/flute.mp3" preload="none" title="Tensnake - See Right Through Ft. Fiora"></audio>
+            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/flute.mp3" data-artist="Tensnake" data-thumbnail="resources/img/content/cover1.jpg" >
+              <audio src="resources/audio/flute.mp3" preload="none" title="Tensnake - See Right Through Ft. Fiora"></audio>
               <div class="play-pause-button">
                 <div class="center-y-table">
                   <i class="fa fa-play"></i>
@@ -277,8 +276,8 @@
               <time class="trak-duration" datetime="2016-06-02">3:19	</time>
             </div>
 
-            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/2.mp3" data-artist=" Jack U ft. Kiesza" data-thumbnail="assets/img/content/cover2.jpg" >
-              <audio src="assets/audio/2.mp3" preload="none" title=" Jack U ft. Kiesza - Take You There"></audio>
+            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/2.mp3" data-artist=" Jack U ft. Kiesza" data-thumbnail="resources/img/content/cover2.jpg" >
+              <audio src="resources/audio/2.mp3" preload="none" title=" Jack U ft. Kiesza - Take You There"></audio>
               <div class="play-pause-button">
                 <div class="center-y-table">
                   <i class="fa fa-play"></i>
@@ -292,8 +291,8 @@
               <time class="trak-duration" datetime="2016-06-02">3:44</time>
             </div>
 
-            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/3.mp3" data-artist=" Bob Sinclair" data-thumbnail="assets/img/content/cover1.jpg" >
-              <audio src="assets/audio/3.mp3" preload="none" title=" Bob Sinclair - Cinderella"></audio>
+            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/3.mp3" data-artist=" Bob Sinclair" data-thumbnail="resources/img/content/cover1.jpg" >
+              <audio src="resources/audio/3.mp3" preload="none" title=" Bob Sinclair - Cinderella"></audio>
               <div class="play-pause-button">
                 <div class="center-y-table">
                   <i class="fa fa-play"></i>
@@ -307,8 +306,8 @@
               <time class="trak-duration" datetime="2016-06-02">	3:10</time>
             </div>
 
-            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/1.mp3" data-artist="Yuna" data-thumbnail="assets/img/content/cover2.jpg" >
-              <audio src="assets/audio/1.mp3" preload="none" title="Yuna - Lullabies"></audio>
+            <div class="trak-item" data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/1.mp3" data-artist="Yuna" data-thumbnail="resources/img/content/cover2.jpg" >
+              <audio src="resources/audio/1.mp3" preload="none" title="Yuna - Lullabies"></audio>
               <div class="play-pause-button">
                 <div class="center-y-table">
                   <i class="fa fa-play"></i>
@@ -348,12 +347,12 @@
 <!-- the library jquery has to be the first to be imported! otherwise we are encoutering some errors!
 Hence, the order of libraries importation counts. -->
 <!-- javascript libraries -->
-<script src="lib/jquery.js"></script>
-<script type="text/javascript" src="lib/jquery.jplayer.js"></script>
+<script src="resources/js/lib/jquery.js"></script>
+<script type="text/javascript" src="resources/js/lib/jquery.jplayer.js"></script>
 
 <!-- javascript scripts -->
-<script src="js/script.js"></script>
-<script src="js/jPlayer.js"></script>
+<script src="resources/js/script.js"></script>
+<script src="resources/js/jPlayer.js"></script>
 
 </body>
 
