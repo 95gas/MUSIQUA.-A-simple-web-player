@@ -6,8 +6,8 @@ public class Album {
 	private String artist;
 	private float duration;
 	private int year;
-	private int[] songs;
-	
+	private Song[] songs;
+
 	public Album(String name, String artist, float duration, int year) {
 		super();
 		this.name = name;
@@ -47,8 +47,13 @@ public class Album {
 	public void setYear(int year) {
 		this.year = year;
 	}
-	
-	public int[] get_songs() {
+
+	public Song[] getSongs() {
 		return songs;
 	}
+
+	public void setSongs(Song[] songs) {
+		this.songs = songs;
+	}
+
 }
