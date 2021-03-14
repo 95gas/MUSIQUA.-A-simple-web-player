@@ -3,11 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Metas -->
-  <meta charset="utf-8">
   <title>Your profile</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Css -->
   <link rel='stylesheet'  href='resources/css/profilepage.css' type='text/css' media='all' />
