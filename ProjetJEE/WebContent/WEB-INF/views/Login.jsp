@@ -9,8 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Css -->
-  <link rel='stylesheet'  href='../../resources/css/login.css' type='text/css' media='all' />
-  <!-- link href="css/fonts.css" rel="stylesheet" type="text/css"  media="all" / -->
+  <link rel='stylesheet'  href='resources/css/login.css' type='text/css' media='all' />
+  <link href="resources/css/fonts.css" rel="stylesheet" type="text/css"  media="all" />
 
 </head>
 <body>
@@ -25,9 +25,9 @@
     <div class="right-part">
       <nav class="main-nav">
         <ul class="main-menu list-inline">
-          <li><a class="scroll list-inline-item" href="index.html">Home</a></li>
+          <li><a class="scroll list-inline-item" href="indexServlet">Home</a></li>
           <li class="block-helper">
-            <a href="#" class="scroll"><span><i class="icon-user"></i></span></a>
+            <a href="#" class="scroll">Help</a>
           </li>
         </ul>
       </nav>

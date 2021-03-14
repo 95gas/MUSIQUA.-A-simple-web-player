@@ -57,7 +57,7 @@
           <ul class="main-menu list-inline">
             <li><a class="scroll list-inline-item" href="#welcome">Home</a></li>
             <li class="block-helper">
-              <a href="log-in.jps" class="scroll"><span><i class="icon-user"></i></span></a>
+              <a href="LoginServlet" class="scroll"><span><i class="icon-user">Log in/Sign up</i></span></a>
             </li>
             <li><a class="scroll list-inline-item" href="Albums.jps">Music Library</a></li>
           </ul>
