@@ -21,18 +21,6 @@
 
 <body>
 
-  <!-- Preloader -->
-  <div class="loader">
-    <!-- Preloader inner -->
-    <div class="loader-inner">
-      <svg width="120" height="220" viewbox="0 0 100 100" class="loading-spinner" version="1.1" xmlns="http://www.w3.org/2000/svg">
-        <circle class="spinner" cx="50" cy="50" r="21" fill="#13181d" stroke-width="2"/>
-      </svg>
-    </div>
-    <!-- End preloader inner -->
-  </div>
-  <!-- End preloader-->
-
   <!-- Start header-->
   <header class="header default">
     <div class=" left-part">
@@ -119,7 +107,7 @@
           <li class="col-md-3 col-sm-3 col-xs-12">
             <div class="album-icon albumIcon3">
               <span class="thumbs-album">
-                <img width="270" height="270" src="assets/img/content/albumCover3.png">
+                <img width="270" height="270" src="resources/assets/img/content/albumCover3.png">
               </span>
               <span class="disk"></span>
             </div>
@@ -128,6 +116,58 @@
               <p style="word-spacing:5px;"><i class="fas fa-microphone" style="font-size: 1rem"></i> Artist</p>
               <p style="word-spacing:10px;">20:40h - 2020</p>
             </div>
+          </li>
+            <li class="col-md-3 col-sm-3 col-xs-12">
+            <div class="album-icon albumIcon3">
+              <span class="thumbs-album">
+                <img width="270" height="270" src="resources/assets/img/content/albumCover3.png">
+              </span>
+              <span class="disk"></span>
+            </div>
+            <div class="name">
+              <h3>Natural Earth</h3>
+              <p style="word-spacing:5px;"><i class="fas fa-microphone" style="font-size: 1rem"></i> Artist</p>
+              <p style="word-spacing:10px;">20:40h - 2020</p>
+            </div>
+          </li>
+          <li class="col-md-3 col-sm-3 col-xs-12">
+            <div class="album-icon albumIcon2">
+              <span class="thumbs-album">
+                <img width="270" height="270" src="resources/assets/img/content/albumCover2.png">
+              </span>
+              <span class="disk"></span>
+            </div>
+            <div class="name">
+              <h3>Strange Clouds</h3>
+              <p style="word-spacing:5px;"><i class="fas fa-microphone" style="font-size: 1rem"></i> Artist</p>
+              <p style="word-spacing:10px;">20:40h - 2020</p>
+            </div>
+          </li>
+          <li class="col-md-3 col-sm-3 col-xs-12">
+            <div class="album-icon albumIcon1">
+              <span class="thumbs-album">
+                <img width="270" height="270" src="resources/assets/img/content/albumCover1.png">
+              </span>
+              <span class="disk"></span>
+            </div>
+            <div class="name">
+              <h3>Stunt Vibe</h3>
+              <p style="word-spacing:5px;"><i class="fas fa-microphone" style="font-size: 1rem"></i> Artist</p>
+              <p style="word-spacing:10px;">20:40h - 2020</p>
+            </div>
+          </li>
+          <li class="col-md-3 col-sm-3 col-xs-12">
+            <div class="album-icon">
+              <span class="thumbs-album">
+                <img width="270" height="270" src="resources/assets/img/content/albumCover.png">
+              </span>
+              <span class="disk"></span>
+            </div><!-- END ALBUM ICON -->
+            <div class="name">
+              <h3>Noon Xoxo</h3>
+              <p style="word-spacing:5px;"><i class="fas fa-microphone" style="font-size: 1rem"></i> Artist</p>
+              <p style="word-spacing:10px;">20:40h - 2020</p>
+            </div><!-- end name -->
           </li>
         </ul>
       </div><!-- end aqura-filter-cotent -->
