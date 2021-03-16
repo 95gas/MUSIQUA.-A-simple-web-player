@@ -3,13 +3,12 @@ package models;
 public class Playlist {
 
 	private String title;
-	private int num_songs;
-	private Song[] songs;
+	private int id;
 
-	public Playlist(String title, int num_songs) {
+	public Playlist(String title, int id) {
 		super();
 		this.title = title;
-		this.num_songs = num_songs;
+		this.id = id;
 	}
 
 	public String getTitle() {
@@ -20,20 +19,12 @@ public class Playlist {
 		this.title = title;
 	}
 
-	public int getNum_songs() {
-		return num_songs;
+	public int getId() {
+		return id;
 	}
 
-	public void setNum_songs(int num_songs) {
-		this.num_songs = num_songs;
+	public void setId(int id) {
+		this.id = id;
 	}
-
-	public Song[] getSongs() {
-		return songs;
-	}
-
-	public void setSongs(Song[] songs) {
-		this.songs = songs;
-	}
-
+	
 }

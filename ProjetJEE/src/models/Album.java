@@ -1,4 +1,5 @@
 package models;
+import java.sql.Blob;
 
 public class Album {
 
@@ -6,16 +7,12 @@ public class Album {
 	private String artist;
 	private float duration;
 	private int year;
-	private Song[] songs;
+	private Blob cover;
 
-	public Album(String name, String artist, float duration, int year) {
-		super();
-		this.name = name;
-		this.artist = artist;
-		this.duration = duration;
-		this.year = year;
+	public Album() {
+		
 	}
-
+	
 	public String getName() {
 		return name;
 	}
@@ -48,12 +45,12 @@ public class Album {
 		this.year = year;
 	}
 
-	public Song[] getSongs() {
-		return songs;
+	public Blob getCover() {
+		return cover;
 	}
 
-	public void setSongs(Song[] songs) {
-		this.songs = songs;
+	public void setCover(Blob cover) {
+		this.cover = cover;
 	}
-
+	
 }

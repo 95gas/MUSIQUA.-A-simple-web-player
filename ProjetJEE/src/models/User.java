@@ -1,5 +1,6 @@
 package models;
 
+
 public class User {
 
 	private String firstname;
@@ -19,8 +20,8 @@ public class User {
 	private String appletoken;
 	private String gmailtoken;
 	private String role;
-	private Playlist[] playlist;
 
+	
 	public User(String firstname, String lastname, int birth_year, int birth_month, int birth_day, String gender,
 			String country, String city, String street, String street_number, int postcode, String email, String psw,
 			String facetoken, String appletoken, String gmailtoken, String role) {
@@ -178,14 +179,6 @@ public class User {
 
 	public void setRole(String role) {
 		this.role = role;
-	}
-
-	public Playlist[] getPlaylist() {
-		return playlist;
-	}
-
-	public void setPlaylist(Playlist[] playlist) {
-		this.playlist = playlist;
 	}
 
 }
