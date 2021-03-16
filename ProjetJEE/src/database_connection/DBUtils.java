@@ -358,7 +358,7 @@ public class DBUtils {
 
 	}
 
-	
+
 	public static void link_playlsit(Connection conn, int id_playlist, String email) throws SQLException {
 		String sql = "SELECT id FROM users WHERE email = ?";
 
