@@ -152,7 +152,7 @@ public class DBUtils {
 		return rs.getInt("id");
 	}
 
-	// RETUNR ID_ARTIST
+	// RETURN ID_ARTIST
 	public static int Return_ID_artist(Connection conn, String name, String surname) throws SQLException {
 		String sql = "SELECT id FROM artist WHERE first_name = ?, last_name = ?";
 
