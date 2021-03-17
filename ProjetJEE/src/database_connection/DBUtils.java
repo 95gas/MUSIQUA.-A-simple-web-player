@@ -26,14 +26,13 @@ public class DBUtils {
 
 		ResultSet rs = pstm.executeQuery();
 		List<Song> list = new ArrayList<Song>();
-		ListIterator<Song> cursor = list.listIterator();
-		String previous_title = " ";
+		//ListIterator<Song> cursor = list.listIterator();
+		//String previous_title = " ";
 
 		while (rs.next()) {
 
 			String title = rs.getString("S.title");
 			String artist = rs.getString("A.full_name");
-			System.out.println(artist);
 			
 			/* add artist to previous song
 			if (title == previous_title) {
@@ -49,7 +48,6 @@ public class DBUtils {
 				String genre = rs.getString("descr");
 				int year = rs.getInt("S.year");
 				String album = rs.getString("AL.title");
-				System.out.println(album);
 
 				if (rs.wasNull()) { // if song is a single
 					album = " ";
