@@ -92,6 +92,12 @@ public class JDBCFilter implements Filter {
 				// Create a Connection.
 				conn = ConnectionUtils.getConnection();
 				
+				if (conn != null) {
+					System.out.println("Database Connected successfully");
+				} else {
+					System.out.println("Database Connection failed");
+				}
+				
 				// Set outo commit to false.
 				conn.setAutoCommit(false);
 
@@ -100,6 +106,7 @@ public class JDBCFilter implements Filter {
 
 				// Allow request to go forward
 				// (Go to the next filter or target)
+				
 				chain.doFilter(request, response);
 
 				// Invoke the commit() method to complete the transaction with the DB.

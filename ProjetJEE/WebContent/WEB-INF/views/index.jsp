@@ -153,8 +153,8 @@
 					<div id="post-59"
 						class="jp-playlist post-59 albums type-albums status-publish has-post-thumbnail hentry albums-category-new">
 						<div class="about-list clearfix">
-							<span class="about-name"> NAME </span> <span class="about-length">
-								LENGTH </span>
+							<span class="about-name">  MUSIC </span> 
+							<span class="about-length">LENGTH </span>
 						</div>
 
 						<c:forEach items="${topSongs}" var="song">
@@ -170,13 +170,14 @@
 										<i class="fa fa-play"></i>
 									</div>
 								</div>
+								
 								<div class="name-artist">
 									<div class="center-y-table">
-										<h2>${song.title}</h2>
+										<pre><h2>${song.title} -  ${song.artist} -  ${song.album} -  ${song.genre}</h2></pre>
 									</div>
 								</div>
-								<time class="trak-duration" datetime="2016-06-02">
-									${song.duration} </time>
+	
+								<time class="trak-duration" datetime="2016-06-02">${song.duration} </time>
 							</div>
 							
 						</c:forEach>

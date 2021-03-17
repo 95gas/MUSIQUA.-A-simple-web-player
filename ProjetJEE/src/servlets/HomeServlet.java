@@ -34,6 +34,9 @@ public class HomeServlet extends HttpServlet {
 
 		try {
 			top_songs = DBUtils.top_songs(conn);
+			System.out.println(top_songs.size());
+			System.out.println("ok");
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			errorString = e.getMessage();

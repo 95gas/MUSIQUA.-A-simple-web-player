@@ -1208,7 +1208,6 @@ table > tbody + tbody {
 }
 .trak-item .name-artist h2 {
   white-space: nowrap;
-  width: 58rem;
   overflow: hidden;
   text-overflow: ellipsis;
   color: #757575;
@@ -1411,7 +1410,7 @@ table > tbody + tbody {
     width: 45rem;
   }
   .albumSingle .trak-item .name-artist h2 {
-    width: 45rem;
+    width: 70rem;
   }
   .albumSingle .trak-item .trak-duration {
     float: right;
@@ -1442,7 +1441,7 @@ table > tbody + tbody {
     width: 30rem;
   }
   .albumSingle .trak-item .name-artist h2 {
-    width: 30rem;
+    width: 60rem;
   }
   .albumSingle .trak-item .trak-duration {
     float: right;

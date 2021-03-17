@@ -17,10 +17,9 @@ public class DBUtils {
 
 	// LIST TOP SONGS
 	public static List<Song> top_songs(Connection conn) throws SQLException {
-		String sql = "SELECT S.title, S.year, S.duration, descr, A.first_name, A.last_name, AL.title"
-				+ "FROM song AS S INNER JOIN has AS H ON S.id = H.id_song"
-				+ "INNER JOIN artist AS A ON A.id = H.id_artist" + "LEFT JOIN album AS AL ON AL.id = H.id_album"
-				+ "INNER JOIN genre AS G ON G.id = S.id_genre" + "INNER JOIN artist AS AR ON AR.id = AL.id_artist"
+		String sql = "SELECT S.title, S.year, S.duration, descr, A.full_name, AL.title FROM song AS S "
+				+ "INNER JOIN has AS H ON S.id = H.id_song INNER JOIN artist AS A ON A.id = H.id_artist LEFT JOIN album AS AL ON AL.id = H.id_album INNER JOIN genre AS G ON G.id = S.id_genre "
+				+ "INNER JOIN artist AS AR ON AR.id = AL.id_artist "
 				+ "WHERE rate_top = TRUE;";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
@@ -28,28 +27,29 @@ public class DBUtils {
 		ResultSet rs = pstm.executeQuery();
 		List<Song> list = new ArrayList<Song>();
 		ListIterator<Song> cursor = list.listIterator();
-		String previous_title = "";
+		String previous_title = " ";
 
 		while (rs.next()) {
 
 			String title = rs.getString("S.title");
-			String first_name_artist = rs.getString("first_name");
-			String last_name_artist = rs.getString("last_name");
-			String artist = first_name_artist + " " + last_name_artist;
-
-			// add artist to previous song
+			String artist = rs.getString("A.full_name");
+			System.out.println(artist);
+			
+			/* add artist to previous song
 			if (title == previous_title) {
+				System.out.println("hello");
 				Song previous_song = cursor.previous();
 				previous_song.addArtist(artist);
 				cursor.next();
 			}
 
-			else {
+			else {*/
 
 				float duration = rs.getFloat("S.duration");
 				String genre = rs.getString("descr");
 				int year = rs.getInt("S.year");
 				String album = rs.getString("AL.title");
+				System.out.println(album);
 
 				if (rs.wasNull()) { // if song is a single
 					album = " ";
@@ -65,10 +65,10 @@ public class DBUtils {
 				best_song.setIs_top(true);
 
 				list.add(best_song);
-				cursor.next();
-			}
+				//cursor.next();
+			//}
 
-			previous_title = title;
+			//previous_title = title;
 		}
 
 		if (list.size() > 0) {
