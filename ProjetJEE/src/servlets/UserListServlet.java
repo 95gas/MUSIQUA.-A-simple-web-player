@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+import javax.servlet.ServletContext;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -38,7 +39,7 @@ public class UserListServlet {
         request.setAttribute("errorString", errorString);
         request.setAttribute("listAllSongs", userList);
 		
-		//this.getServletContext().getRequestDispatcher("/WEB-INF/views/UserList.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/WEB-INF/views/UserList.jsp").forward(request, response);
 	}
 
 	/**
