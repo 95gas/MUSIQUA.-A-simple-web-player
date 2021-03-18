@@ -3,6 +3,7 @@ package models;
 
 public class User {
 
+	private String username;
 	private String firstname;
 	private String lastname;
 	private int birth_year;
@@ -20,12 +21,12 @@ public class User {
 	private String appletoken;
 	private String gmailtoken;
 	private String role;
-
 	
-	public User(String firstname, String lastname, int birth_year, int birth_month, int birth_day, String gender,
-			String country, String city, String street, String street_number, int postcode, String email, String psw,
-			String facetoken, String appletoken, String gmailtoken, String role) {
+	public User(String username, String firstname, String lastname, int birth_year, int birth_month, int birth_day,
+			String gender, String country, String city, String street, String street_number, int postcode, String email,
+			String psw, String facetoken, String appletoken, String gmailtoken, String role) {
 		super();
+		this.username = username;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.birth_year = birth_year;
@@ -43,6 +44,14 @@ public class User {
 		this.appletoken = appletoken;
 		this.gmailtoken = gmailtoken;
 		this.role = role;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getFirstname() {
@@ -181,4 +190,5 @@ public class User {
 		this.role = role;
 	}
 
+	
 }

@@ -12,6 +12,7 @@ import java.util.ListIterator;
 import models.Album;
 import models.Playlist;
 import models.Song;
+import models.User;
 
 public class DBUtils {
 
@@ -374,7 +375,7 @@ public class DBUtils {
 	}
 */
 	public static void deleteProduct(Connection conn, String code) throws SQLException {
-		String sql = "Delete From Product where Code= ?";
+		String sql = "Delete From Catalogue where Code= ?";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
@@ -382,5 +383,54 @@ public class DBUtils {
 
 		pstm.executeUpdate();
 	}
+	// ADD User
+	public static int insertUser(Connection conn, User user) throws SQLException {
+		String sql = "Insert into users values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		
+
+		 String username = user.getUsername();
+		 String firstname = user.getFirstname();
+		 String lastname = user.getLastname();
+		 int birth_year = user.getBirth_year();
+		 int birth_month = user.getBirth_month();
+		 int birth_day = user.getBirth_day();
+		 String gender = user.getGender();
+		 String country = user.getCountry();
+		 String city = user.getCity();
+		 String street = user.getStreet();
+		 String street_number = user.getStreet_number();
+		 int postcode = user.getPostcode();
+		 String email = user.getEmail();
+		 String psw = user.getPsw();
+		 String facetoken = user.getFacetoken();
+		 String appletoken = user.getAppletoken();
+		 String gmailtoken = user.getGmailtoken();
+		 String role = user.getRole();
+
+		pstm.setString(1, username);
+		pstm.setString(2, firstname);
+		pstm.setString(3, lastname);
+		pstm.setInt(4, birth_year);
+		pstm.setInt(5, birth_month);
+		pstm.setInt(6, birth_day);
+		pstm.setString(7, gender);
+		pstm.setString(8, country);
+		pstm.setString(9, city);
+		pstm.setString(10, street);
+		pstm.setString(11, street_number);
+		pstm.setInt(12, postcode);
+		pstm.setString(13, email);
+		pstm.setString(14, psw);
+		pstm.setString(15, facetoken);
+		pstm.setString(16, appletoken);
+		pstm.setString(17, gmailtoken);
+		pstm.setString(18, role);
+		
+		return pstm.executeUpdate();
+
+	}
+
 
 }
