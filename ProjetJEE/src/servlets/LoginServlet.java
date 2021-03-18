@@ -1,15 +1,22 @@
 package servlets;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sun.tools.sjavac.server.RequestHandler;
 
 import database_connection.ConnexionForm;
+import database_connection.DBUtils;
+import database_connection.MyUtils;
 import models.User;
 
 /**
@@ -35,43 +42,74 @@ public class LoginServlet extends HttpServlet {
 
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		
-		 	User user=null;
-	        String username = req.getParameter("username");
-	        String email = req.getParameter("email");
-	        String password = req.getParameter("password");
-	        if(username!=null && password!=null) {
-	            user = RequestHandler.getRequestHandler().authenticate(username, password);
-	        }
-	        else if(email!=null && password!=null) {
-	            user = RequestHandler.getRequestHandler().authenticate(email, password);
-	        	
-	        }
-	        
-	        //If he is authenticated, we create a cookie to follow his connexion
-	        
-	        if (user!=null) {
-	            req.setAttribute("gameList", RequestHandler.getRequestHandler().getEnabledGames());
-	            setCookie(resp, COOKIE_PLAYER, player.getId().toString(), COOKIE_MAX_AGE);
-	            req.setAttribute("player",player);
-	            this.getServletContext().getRequestDispatcher("/WEB-INF/gamesList.jsp").forward(req, resp);
-	        }
-	        /*
-	        Else
-	         */
-	        else
-	        {
-	            req.setAttribute("error","Impossible de t'identifier, vérifie ton pseudo et ton mot de passe.");
-	            if (pseudo!=null) {
-	                req.setAttribute("pseudo", pseudo);
-	            }
-	            this.getServletContext().getRequestDispatcher("/WEB-INF/authentification.jsp").forward(req,resp);
-	        }
-		
+	 // When the user enters userName & password, and click Submit.
+    // This method will be executed.
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String userName = request.getParameter("userName");
+        String password = request.getParameter("password");
+        String rememberMeStr = request.getParameter("rememberMe");
+        boolean remember = "Y".equals(rememberMeStr);
+ 
+        User user = null;
+        boolean hasError = false;
+        String errorString = null;
+ 
+        if (userName == null || password == null || userName.length() == 0 || password.length() == 0) {
+            hasError = true;
+            errorString = "Required username and password!";
+        } else {
+            Connection conn = MyUtils.getStoredConnection(request);
+            try {
+                // Find the user in the DB.
+                user = DBUtils.findUser(conn, userName, password);
+ 
+                if (user == null) {
+                    hasError = true;
+                    errorString = "User Name or password invalid";
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+                hasError = true;
+                errorString = e.getMessage();
+            }
+        }
+        // If error, forward to /WEB-INF/views/login.jsp
+        if (hasError) {
+            user = new User();
+            user.setUsername(userName);
+            user.setPsw(password);
+ 
+            // Store information in request attribute, before forward.
+            request.setAttribute("errorString", errorString);
+            request.setAttribute("user", user);
+ 
+            // Forward to /WEB-INF/views/login.jsp
+            RequestDispatcher dispatcher //
+                    = this.getServletContext().getRequestDispatcher("/WEB-INF/views/loginView.jsp");
+ 
+            dispatcher.forward(request, response);
+        }
+        // If no error
+        // Store user information in Session
+        // And redirect to userInfo page.
+        else {
+            HttpSession session = request.getSession();
+            MyUtils.storeLoginedUser(session, user);
+ 
+            // If user checked "Remember me".
+            if (remember) {
+                MyUtils.storeUserCookie(response, user);
+            }
+            // Else delete cookie.
+            else {
+                MyUtils.deleteUserCookie(response);
+            }
+ 
+            // Redirect to userInfo page.
+            response.sendRedirect(request.getContextPath() + "/userInfo");
+        }
 	}
 
 }

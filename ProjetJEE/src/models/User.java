@@ -26,6 +26,7 @@ public class User {
 		
 	}
 	
+	public User() {};
 	public User(String username, String firstname, String lastname, int birth_year, int birth_month, int birth_day,
 			String gender, String country, String city, String street, String street_number, int postcode, String email,
 			String psw, String facetoken, String appletoken, String gmailtoken, String role) {
