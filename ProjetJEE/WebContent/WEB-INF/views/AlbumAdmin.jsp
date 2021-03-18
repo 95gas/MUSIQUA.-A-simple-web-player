@@ -48,7 +48,7 @@
 	<!-- ===============  START HEADER ================ -->
 	<header class="header default">
 		<div class=" left-part">
-			<a class="logo" href="index.html">
+			<a class="logo" href="index">
 				<h2 class="mb-0 uppercase">musiqua.</h2>
 			</a>
 		</div>

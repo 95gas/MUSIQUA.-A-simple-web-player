@@ -29,9 +29,9 @@
     <div class="right-part">
       <nav class="main-nav">
         <ul class="main-menu list-inline">
-          <li><a class="scroll list-inline-item" href="index.html">Home</a></li>
+          <li><a class="scroll list-inline-item" href="index">Home</a></li>
           <li class="block-helper">
-            <a href="#" class="scroll"><span><i class="icon-user"></i></span></a>
+            <a href="" class="scroll"><span><i class="icon-user"></i></span></a>
           </li>
         </ul>
       </nav>
