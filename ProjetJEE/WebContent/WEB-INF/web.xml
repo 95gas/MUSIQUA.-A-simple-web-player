@@ -26,6 +26,16 @@
 		<servlet-name>addSongServlet</servlet-name>
 		<url-pattern>/addSong</url-pattern>
 	</servlet-mapping>
+	
+		<servlet>
+		<description></description>
+		<servlet-name>UserListServlet</servlet-name>
+		<servlet-class>servlets.UserListServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserListServlet</servlet-name>
+		<url-pattern>/UserList</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<description></description>

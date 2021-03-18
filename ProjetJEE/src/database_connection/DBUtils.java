@@ -110,6 +110,41 @@ public class DBUtils {
 		return null;
 	}
 
+	
+	// LIST ALL USER
+	public static List<User> listUser(Connection conn) throws SQLException {
+		String sql = "SELECT username, first_name, last_name, email"
+				+ "FROM users;";
+
+		PreparedStatement pstm = conn.prepareStatement(sql);
+
+		ResultSet rs = pstm.executeQuery();
+		List<User> list = new ArrayList<User>();
+
+		while (rs.next()) {
+
+			String username = rs.getString("username");
+			String firstname = rs.getString("firs_tname");
+			String lastname = rs.getString("laast_name");
+			String email = rs.getString("email");
+
+
+			User client = new User();
+			client.setUsername(username);
+			client.setFirstname(firstname);
+			client.setLastname(lastname);
+			client.setEmail(email);
+
+			list.add(client);
+
+		}
+
+		if (list.size() > 0) {
+			return list;
+		}
+
+		return null;
+	}
 
 	// RETUNR ID_GENRE
 	public static int Return_ID_genre(Connection conn, String genre) throws SQLException {
