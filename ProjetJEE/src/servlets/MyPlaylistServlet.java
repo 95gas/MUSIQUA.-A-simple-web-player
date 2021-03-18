@@ -52,6 +52,7 @@ public class MyPlaylistServlet extends HttpServlet {
 		// Store info in request attribute, before forward to views
         request.setAttribute("errorString", errorString);
         request.setAttribute("list_play", listPlaylist);
+        request.setAttribute("user_session", man);
         
         this.getServletContext().getRequestDispatcher("/WEB-INF/views/MyPlaylist.jsp").forward(request, response);
 

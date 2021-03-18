@@ -69,7 +69,6 @@
 						<li><a class="scroll list-inline-item" href="#welcome">Home</a></li>
 						<li class="block-helper"><a href="Login"
 							class="scroll"><span><i class="icon-user"></i>Log in/Sign up</span></a></li>
-						<li><a class="scroll list-inline-item" href="Album">Music Library</a></li>
 					</ul>
 				</nav>
 			</div>

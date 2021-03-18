@@ -60,6 +60,12 @@ public class AllSongServlet extends HttpServlet {
         request.setAttribute("errorString", errorString);
         request.setAttribute("listAllSongs", allsongs);
         request.setAttribute("list_play", listPlaylist);
+        
+        
+        HttpSession session = request.getSession();
+        User user = new User();
+        user = MyUtils.getLoginedUser(session);
+        request.setAttribute("user_session", user);
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/views/AllSongs.jsp").forward(request, response);
 	}

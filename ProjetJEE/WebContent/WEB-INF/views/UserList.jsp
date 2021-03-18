@@ -71,8 +71,8 @@
 		<div class="right-part">
 			<nav class="main-nav">
 				<ul class="main-menu list-inline">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="profilepage.html"><i class="icon-user"></i></a></li>
+					<li><a href="index">Home</a></li>
+					<li><a href="#"><i class="icon-user"></i></a></li>
 				</ul>
 			</nav>
 		</div>

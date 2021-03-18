@@ -16,14 +16,14 @@
   <!--Header-->
   <header class="header default">
     <div class=" left-part">
-      <a class="logo scroll" href="indexServlet">
+      <a class="logo scroll" href="index">
         <h1 class="mb-0 uppercase">musiqua.</h1>
       </a>
     </div>
     <div class="right-part">
       <nav class="main-nav">
         <ul class="main-menu list-inline">
-          <li><a class="scroll list-inline-item" href="indexServlet">Home</a></li>
+          <li><a class="scroll list-inline-item" href="index">Home</a></li>
           <li class="block-helper">
             <a href="#" class="scroll"><span><i class="icon-user"></i></span></a>
           </li>

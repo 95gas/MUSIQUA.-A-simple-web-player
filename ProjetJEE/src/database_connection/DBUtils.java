@@ -375,30 +375,6 @@ public class DBUtils {
 		return null;
 	}
 
-	// list playlist per TEST (TO DELETE)
-	public static List<Playlist> test(Connection conn) throws SQLException {
-		String sql = "SELECT title FROM playlist AS P INNER JOIN listen_to AS L ON P.id = id_playlist INNER JOIN users AS U ON U.id = id_user;";
-
-		PreparedStatement pstm = conn.prepareStatement(sql);
-
-		ResultSet rs = pstm.executeQuery();
-
-		List<Playlist> list = new ArrayList<Playlist>();
-
-		while (rs.next()) {
-
-			String title = rs.getString("title");
-			Playlist playlist = new Playlist(title);
-			list.add(playlist);
-		}
-
-		if (list.size() > 0) {
-			return list;
-		}
-
-		return null;
-	}
-
 	public static void AddToPlaylist(Connection conn, int idSong, int idPlaylist) throws SQLException {
 		String sql = "INSERT INTO contain(id_song, id_playlist) VALUES (?,?);";
 
@@ -581,7 +557,7 @@ public class DBUtils {
 	}
 
 	// ADD User
-	public static int insertUser(Connection conn, User user) throws SQLException {
+	public static void insertUser(Connection conn, User user) throws SQLException {
 		String sql = "Insert into users values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
@@ -659,7 +635,6 @@ public class DBUtils {
 		else {
 			user = null;
 		}
-		
 		
 		return user;
 	}

@@ -9,10 +9,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import database_connection.DBUtils;
 import database_connection.MyUtils;
 import models.Album;
+import models.User;
 
 /**
  * Servlet implementation class AlbumServlet
@@ -48,6 +50,11 @@ public class AlbumServlet extends HttpServlet {
 		// Store info in request attribute, before forward to views
         request.setAttribute("errorString", errorString);
         request.setAttribute("list_album", albumList);
+        
+        HttpSession session = request.getSession();
+        User user = new User();
+        user = MyUtils.getLoginedUser(session);
+        request.setAttribute("user_session", user);
         
         
 		//response.getWriter().append("Served at: ").append(request.getContextPath());

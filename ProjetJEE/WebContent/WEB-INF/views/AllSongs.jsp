@@ -70,7 +70,7 @@
 			<nav class="main-nav">
 				<ul class="main-menu list-inline">
 					<li><a href="index">Home</a></li>
-					<li><a href="Profile"><i class="icon-user"></i>Profile</a></li>
+					<li><a href="ProfilePage"><i class="icon-user"></i>${user_session.getUsername()}</a></li>
 				</ul>
 			</nav>
 		</div>
