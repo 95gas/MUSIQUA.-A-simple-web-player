@@ -66,7 +66,7 @@
       </div>
     </div>
 
-    <form method="post" novalidate="" class="">
+    <form method="post" action="Login" class="">
 
       <div class="row_log_in">
         <div class="col_log_in">
