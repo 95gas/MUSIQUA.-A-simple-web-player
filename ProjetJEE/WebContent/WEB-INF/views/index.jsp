@@ -84,9 +84,7 @@
 			class="fa fa-minus"></i>
 		</a>
 		<div id="mesh-main-player" class="jp-jplayer"
-			data-audio-src="resources/audio/flute.mp3"
 			data-title="See right through ft. Fiora" data-artist="Tensnake"></div>
-
 		<div id="mesh-main-player-content" class="mesh-main-player"
 			role="application" aria-label="media player">
 			<div class="container">
@@ -160,7 +158,7 @@
 								data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/flute.mp3"
 								data-artist="${song.artist}"
 								data-thumbnail="resources/img/content/cover1.jpg">
-								<audio src="resources/audio/flute.mp3" preload="none"
+								<audio src="" preload="none"
 									title="${song.title}"></audio>
 								<div class="play-pause-button">
 									<div class="center-y-table">

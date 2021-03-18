@@ -36,7 +36,7 @@
     <form novalidate="" method="POST">
       <h3 class="text-style center-text">Sign up with your email address</h3>
       <div class="cell">
-        <div class="label_field"><label for="gender" class="color_label">What&#x27;s your gender?</label></div>
+        <div class="label_field"><label for="gender" class="color_label">Gender?</label></div>
         <div class="GenderSelect input_checkbox">
           <label class="container_checkbox"><input type="radio" name="gender" required="" value="male" aria-invalid="false" class="male_check inner_checkbox_format"/><span class="indicator outer_checkbox"></span><span class="label_checkbox color_label_checkbox">Male</span></label>
           <label class="container_checkbox"><input type="radio" name="gender" required="" value="female" aria-invalid="false" class="female_check inner_checkbox_format"/><span class="indicator outer_checkbox"></span><span class="label_checkbox color_label_checkbox">Female</span></label>
@@ -45,23 +45,26 @@
       </div>
       <div class="cell">
         <div class="label_field"><label for="email" class="color_label">Username</label></div>
-        <input type="username" id="username" name="username" placeholder="Enter your username." required="" value="" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+        <input type="username" id="username" name="username" placeholder="Enter your username." required="" value="${valeurs['username']}" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+        <span class="erreur">${erreurs['username']}</span>
       </div>
       <div class="cell">
-        <div class="label_field"><label for="email" class="color_label">What&#x27;s your email?</label></div>
-        <input type="email" id="email" name="email" placeholder="Enter your email." required="" value="" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+        <div class="label_field"><label for="email" class="color_label">Email?</label></div>
+        <input type="email" id="email" name="email" placeholder="Enter your email." required="" value="${valeurs['email']}" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+        <span class="erreur">${erreurs['email']}</span>
       </div>
       <div class="cell">
         <div class="label_field"><label for="email" class="color_label">First Name</label></div>
-        <input type="name" id="name" name="name" placeholder="Enter your first name." required="" value="" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+        <input type="name" id="name" name="name" placeholder="Enter your first name." required="" value="${valeurs['name']}" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
       </div>
       <div class="cell">
         <div class="label_field"><label for="confirm" class="color_label">Last Name</label></div>
-        <input type="surname" id="surname" name="surname" pattern="" placeholder="Enter your last name." required="" value="" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+        <input type="surname" id="surname" name="surname" pattern="" placeholder="Enter your last name." required="" value="${valeurs['surname']}" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
       </div>
       <div class="cell">
         <div class="label_field"><label for="password" class="color_label">Create a password</label></div>
         <input type="password" autoComplete="new-password" id="password" pattern=".{8,}" name="password" placeholder="Create a password." required="" value="" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+        <span class="erreur">${erreurs['password']}</span>
       </div>
       <div class="cell">
         <div class="label_field"><label for="password" class="color_label">Confirm your password</label></div>
@@ -103,7 +106,7 @@
       </div>
       <!-- birth date -->
       <div class="cell">
-        <div class="label_field"><label class="color_label">What&#x27;s your date of birth?</label></div>
+        <div class="label_field"><label class="color_label">Your date of birth?</label></div>
         <div data-testid="dob-parent" class="date_container">
           <div data-testid="month" class="month style_month">
             <div class="cell no-bottom-pad">

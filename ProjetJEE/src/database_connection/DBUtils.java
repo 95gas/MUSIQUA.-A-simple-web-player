@@ -12,6 +12,7 @@ import java.util.ListIterator;
 import models.Album;
 import models.Playlist;
 import models.Song;
+import models.User;
 
 public class DBUtils {
 
@@ -108,50 +109,50 @@ public class DBUtils {
 
 		return null;
 	}
-	
-	
+
+
 	// RETUNR ID_GENRE
 	public static int Return_ID_genre(Connection conn, String genre) throws SQLException {
 		String sql = "SELECT id FROM genre WHERE descr = ?";
 		int id = -1;
-		
+
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		pstm.setString(1, genre);
-		
+
 		ResultSet rs = pstm.executeQuery();
 
 		if (rs.next()) {
 			id = rs.getInt("id");
 		}
-		
+
 		return id;
 	}
-	
+
 	// RETURN ID_ARTIST
 	public static int Return_ID_artist(Connection conn, String full_name) throws SQLException {
 		String sql = "SELECT id FROM artist WHERE full_name = ?;";
 		int id = -1;
-		
+
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		pstm.setString(1, full_name);
 
 		ResultSet rs = pstm.executeQuery();
-		
-		
+
+
 		if (rs.next()) {
 			id = rs.getInt("id");
 		}
-		
+
 		return id;
 	}
-	
+
 	// RETURN ID_ALBUM
 	public static int Return_ID_album(Connection conn, String name, String artist, int year) throws SQLException {
-		
+
 		int idartist = DBUtils.Return_ID_artist(conn, artist);
 		String sql = "SELECT id FROM album WHERE title = ? AND id_artist = ? AND year = ?;";
 		int id = -1;
-		
+
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		pstm.setString(1, name);
 		pstm.setInt(2, idartist);
@@ -161,7 +162,7 @@ public class DBUtils {
 		if (rs.next()) {
 			id = rs.getInt("id");
 		}
-	 
+
 		return id;
 	}
 
@@ -370,7 +371,7 @@ public class DBUtils {
 
 		return null;
 	}
-	
+
 	public static void AddToPlaylist(Connection conn, int idSong, int idPlaylist) throws SQLException {
 		String sql = "INSERT INTO contain"
 				+ "VALUES (?,?);";
@@ -381,9 +382,9 @@ public class DBUtils {
 		pstm.setInt(2, idPlaylist);
 
 		pstm.executeUpdate();
-		
+
 	}
-	
+
 	public static int find_IDSong(Connection conn, String name, String artist) throws SQLException {
 		String sql = "SELECT S.id "
 				+ "FROM song AS S INNER JOIN has AS H ON id_song =S.id "
@@ -401,10 +402,10 @@ public class DBUtils {
 		if (rs.next()) {
 			id = rs.getInt("id");
 		}
-		
+
 		return id;
 	}
-	
+
 	public static int find_IDPlaylist(Connection conn, String name, String username) throws SQLException {
 		String sql = "SELECT id"
 				+ "FROM playlist AS P INNER JOIN listen_to ON P.id = id_playlist"
@@ -418,24 +419,24 @@ public class DBUtils {
 		pstm.setString(2, username);
 
 		ResultSet rs = pstm.executeQuery();
-		
+
 		if (rs.next()) {
 			id = rs.getInt("id");
 		}
-		
+
 		return id;
 	}
-	
+
 	//UPDATE ALBUM
 	public static void updateAlbum(Connection conn, int id, String title, String artist, int year) throws SQLException {
-		
+
 		int id_artist = Return_ID_artist(conn, artist);
-		
+
 		if (id_artist == -1) {
 			System.out.println("Artist not found! Cannot edit the album");
 			return;
 		}
-		
+
 		String sql = "UPDATE album SET title = ? , year = ?, id_artist = ?  WHERE id= ?;";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
@@ -447,14 +448,14 @@ public class DBUtils {
 
 		pstm.executeUpdate();
 	}
-	
-	//UPDATE SONG 
+
+	//UPDATE SONG
 	public static void updateSong(Connection conn, int id_song, String title, String artist, int year, String genre, Float duration, String album, boolean top) throws SQLException {
-		
+
 		int id_artist = Return_ID_artist(conn, artist);
 		int id_genre = Return_ID_genre(conn, genre);
 		int id_album = Return_ID_album(conn, album, artist, year);
-		
+
 		if (id_artist == -1) {
 			System.out.println("Artist not found! Cannot edit the album");
 			return;
@@ -463,9 +464,9 @@ public class DBUtils {
 			System.out.println("No such genre found!");
 			return;
 		}
-		
+
 		String sql = "UPDATE song SET title = ? , year = ?, duration = ?, rate_top = ?, id_genre = ?  WHERE id= ?;";
-		
+
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
 		pstm.setString(1, title);
@@ -476,9 +477,9 @@ public class DBUtils {
 		pstm.setInt(6,id_song);
 
 		pstm.executeUpdate();
-		
+
 		sql = "UPDATE has SET id_song = ? , id_artist = ?, id_album = ?;";
-		
+
 		pstm = conn.prepareStatement(sql);
 
 		pstm.setInt(1, id_song);
@@ -487,35 +488,35 @@ public class DBUtils {
 
 		pstm.executeUpdate();
 	}
-	
+
 	// RETUNR ID_SONG
 		public static int Return_ID_song(Connection conn, String title, int year, int id_genre, Float duration) throws SQLException {
 			String sql = "SELECT id FROM song WHERE title = ? AND year = ? AND id_genre = ? AND duration = ?;";
 			int id = -1;
-			
+
 			PreparedStatement pstm = conn.prepareStatement(sql);
 			pstm.setString(1, title);
 			pstm.setInt(2, year);
 			pstm.setInt(3, id_genre);
 			pstm.setFloat(4, duration);
-			
+
 			ResultSet rs = pstm.executeQuery();
 
 			if (rs.next()) {
 				id = rs.getInt("id");
 			}
-			
+
 			return id;
 		}
-	
-	//INSERT SONG 
+
+	//INSERT SONG
 	public static void insertSong(Connection conn, String title, String artist, int year, String genre, Float duration, String album, boolean top) throws SQLException {
-		
+
 		int id_artist = Return_ID_artist(conn, artist);
 		int id_genre = Return_ID_genre(conn, genre);
 		int id_album = Return_ID_album(conn, album, artist, year);
-		
-		
+
+
 		if (id_artist == -1) {
 			System.out.println("Artist not found! Cannot edit the song");
 			return;
@@ -525,15 +526,15 @@ public class DBUtils {
 			System.out.println("No such genre found! Cannot edit the song");
 			return;
 		}
-		
+
 		if (id_artist == -1) {
 			System.out.println("Album not found! Cannot edit the song");
 			return;
 		}
-		
-		
+
+
 		String sql = "INSERT INTO song (title, year, duration, rate_top, id_genre) VALUES (? , ?, ?, ?, ?);";
-		
+
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
 		pstm.setString(1, title);
@@ -543,12 +544,12 @@ public class DBUtils {
 		pstm.setInt(5,id_genre);
 
 		pstm.executeUpdate();
-		
+
 		int id_song = Return_ID_song(conn, title, year, id_genre, duration);
-		
-		
+
+
 		sql = "INSERT INTO has (id_song, id_artist, id_album) VALUES (? , ?, ?);";
-		
+
 		pstm = conn.prepareStatement(sql);
 
 		pstm.setInt(1, id_song);
@@ -557,10 +558,55 @@ public class DBUtils {
 
 		pstm.executeUpdate();
 	}
-	
-	//DELETE ALBUM
-	public static void deleteAlbum(Connection conn, int id_album) throws SQLException {
-		String sql = "Delete From album where id = ?";
+	// ADD User
+	public static int insertUser(Connection conn, User user) throws SQLException {
+		String sql = "Insert into users values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+		PreparedStatement pstm = conn.prepareStatement(sql);
+
+
+		 String username = user.getUsername();
+		 String firstname = user.getFirstname();
+		 String lastname = user.getLastname();
+		 int birth_year = user.getBirth_year();
+		 int birth_month = user.getBirth_month();
+		 int birth_day = user.getBirth_day();
+		 String gender = user.getGender();
+		 String country = user.getCountry();
+		 String city = user.getCity();
+		 String street = user.getStreet();
+		 String street_number = user.getStreet_number();
+		 int postcode = user.getPostcode();
+		 String email = user.getEmail();
+		 String psw = user.getPsw();
+		 String facetoken = user.getFacetoken();
+		 String appletoken = user.getAppletoken();
+		 String gmailtoken = user.getGmailtoken();
+		 String role = user.getRole();
+
+		pstm.setString(1, username);
+		pstm.setString(2, firstname);
+		pstm.setString(3, lastname);
+		pstm.setInt(4, birth_year);
+		pstm.setInt(5, birth_month);
+		pstm.setInt(6, birth_day);
+		pstm.setString(7, gender);
+		pstm.setString(8, country);
+		pstm.setString(9, city);
+		pstm.setString(10, street);
+		pstm.setString(11, street_number);
+		pstm.setInt(12, postcode);
+		pstm.setString(13, email);
+		pstm.setString(14, psw);
+		pstm.setString(15, facetoken);
+		pstm.setString(16, appletoken);
+		pstm.setString(17, gmailtoken);
+		pstm.setString(18, role);
+
+		return pstm.executeUpdate();
+
+	}
+
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
