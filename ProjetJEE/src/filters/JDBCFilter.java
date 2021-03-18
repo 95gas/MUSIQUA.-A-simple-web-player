@@ -99,18 +99,22 @@ public class JDBCFilter implements Filter {
 				}
 				
 				// Set outo commit to false.
+				System.out.println("1");
 				conn.setAutoCommit(false);
 
 				// Store Connection object in attribute of request.
+				System.out.println("2");
 				MyUtils.storeConnection(request, conn);
 
 				// Allow request to go forward
 				// (Go to the next filter or target)
-				
+				System.out.println("3");
 				chain.doFilter(request, response);
 
+				System.out.println("43");
 				// Invoke the commit() method to complete the transaction with the DB.
 				conn.commit();
+				System.out.println("4");
 			} catch (Exception e) {
 				e.printStackTrace();
 				ConnectionUtils.rollbackQuietly(conn);

@@ -661,7 +661,8 @@ public class DBUtils {
         return false;
     }
 
-
+    public static void deleteAlbum(Connection conn, int id_album) throws SQLException {
+		String sql = "Delete From song where id = ?";
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
 		pstm.setInt(1, id_album);

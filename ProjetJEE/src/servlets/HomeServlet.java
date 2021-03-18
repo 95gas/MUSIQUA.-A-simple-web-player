@@ -16,7 +16,7 @@ import database_connection.MyUtils;
 import database_connection.DBUtils;
 import models.Song;
 
-@WebServlet(urlPatterns = { "/home" })
+//@WebServlet(urlPatterns = { "/home" })
 public class HomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -33,7 +33,9 @@ public class HomeServlet extends HttpServlet {
 		String errorString = null;
 
 		try {
+			System.out.print("ok");
 			top_songs = DBUtils.top_songs(conn);
+			System.out.print("ok2");
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
