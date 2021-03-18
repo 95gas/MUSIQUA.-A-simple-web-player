@@ -431,6 +431,25 @@ public class DBUtils {
 		return pstm.executeUpdate();
 
 	}
+    public static boolean findUser(Connection conn, //
+            String userName, String password) throws SQLException {
+ 
+        String sql = "Select a.User_Name, a.Password, from users a " //
+                + " where a.User_Name = ? and a.password= ?";
+ 
+        PreparedStatement pstm = conn.prepareStatement(sql);
+        pstm.setString(1, userName);
+        pstm.setString(2, password);
+        ResultSet rs = pstm.executeQuery();
+ 
+        if (rs.next()) {
+            User user = new User();
+            user.setUsername(userName);
+            user.setPsw(password);
+            return true;
+        }
+        return false;
+    }
 
 
 }
