@@ -1,6 +1,5 @@
 package models;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Song {
 
@@ -11,8 +10,7 @@ public class Song {
 	private boolean is_top;
 	private String genre;
 	private String album;
-	private List<String> artist = new ArrayList<String>();
-	
+	private String artist;
 	
 	public Song() {
 		
@@ -87,13 +85,14 @@ public class Song {
 		ID = iD;
 	}
 
-	public List<String> getArtist() {
+	public String getArtist() {
 		return artist;
 	}
 
 
-	public void addArtist(String artist) {
-		this.artist.add(artist);
+	public void setArtist(String artist) {
+		this.artist = artist;
 	}
+	
 	
 }

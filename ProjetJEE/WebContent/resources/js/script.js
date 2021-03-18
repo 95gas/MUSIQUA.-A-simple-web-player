@@ -30,4 +30,24 @@
         }
     });
 
+    
 })(jQuery);
+
+
+function showEditOptions() {
+	  var modify = document.getElementById("edit");
+	  var opt = document.getElementById("operation");
+	  opt.style.display = "block";
+	  modify.style.display = "none";
+	  var textboxes = document.getElementById("ToConvert");
+	  textboxes.type = 'text';
+	}
+
+function hideEditOptions() {
+	  var modify = document.getElementById("edit");
+	  var opt = document.getElementById("operation");
+	  opt.style.display = "none";
+	  modify.style.display = "block";
+	  var textboxes = document.getElementById("ToConvert");
+	  textboxes.type = 'hidden';
+	}

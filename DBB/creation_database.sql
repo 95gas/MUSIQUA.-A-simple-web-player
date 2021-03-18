@@ -26,12 +26,12 @@ CREATE TABLE album (
 
 INSERT INTO album (title, id_artist, duration, year, cover)
 VALUES 
-('The start', 2,3.30,2004, null),
-('The end', 3,3.36,2004, null),
-('Hello', 5,2.30,2007, null),
-('Paradise', 7,3.30,2004, null),
-('The hell', 2,1.36,2004, null),
-('Broken heart', 9,2.30,2017, null);
+('The start', 2,43.32,2004, null),
+('The end', 3,34.36,2004, null),
+('Hello', 5,52.31,2007, null),
+('Paradise', 7,63.32,2004, null),
+('The hell', 2,21.36,2004, null),
+('Broken heart', 9,12.30,2017, null);
 
 CREATE TABLE genre (
     id INT PRIMARY KEY auto_increment,
@@ -68,9 +68,9 @@ CREATE TABLE has (
     id_artist INT,
     id_album INT,
     PRIMARY KEY (id_song, id_artist, id_album),
-    FOREIGN KEY (id_song) REFERENCES song (id),
-	FOREIGN KEY (id_artist) REFERENCES artist (id),
-    FOREIGN KEY (id_album) REFERENCES album (id)
+    FOREIGN KEY (id_song) REFERENCES song (id) ON DELETE CASCADE,
+	FOREIGN KEY (id_artist) REFERENCES artist (id) ON DELETE CASCADE,
+    FOREIGN KEY (id_album) REFERENCES album (id) ON DELETE CASCADE
 );
 
 INSERT INTO has(id_song,id_artist,id_album)
@@ -135,6 +135,9 @@ CREATE TABLE listen_to (
     FOREIGN KEY (id_user) REFERENCES users (id),
 	FOREIGN KEY (id_playlist) REFERENCES playlist (id)
 );
+
+INSERT INTO listen_to(id_user, id_playlist)
+VALUES (1, 2), (1,3),(1,5),(2,5),(2,6),(3,5);
 
 CREATE TABLE likes (
 	id_user INT,

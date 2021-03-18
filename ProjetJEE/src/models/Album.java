@@ -3,6 +3,7 @@ import java.sql.Blob;
 
 public class Album {
 
+	private int id;
 	private String name;
 	private String artist;
 	private float duration;
@@ -53,4 +54,11 @@ public class Album {
 		this.cover = cover;
 	}
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }

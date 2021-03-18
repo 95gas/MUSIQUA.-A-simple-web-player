@@ -5,6 +5,7 @@
 		<filter-name>jdbcFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+
 	<servlet>
 		<description></description>
 		<display-name>Login</display-name>
@@ -15,15 +16,67 @@
 		<servlet-name>Login</servlet-name>
 		<url-pattern>/Login</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<description></description>
+		<servlet-name>MyPlaylistServlet</servlet-name>
+		<servlet-class>servlets.MyPlaylistServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPlaylistServlet</servlet-name>
+		<url-pattern>/MyPlaylist</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description></description>
+		<servlet-name>AllSongServlet</servlet-name>
+		<servlet-class>servlets.AllSongServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AllSongServlet</servlet-name>
+		<url-pattern>/AllSongs</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description></description>
+		<servlet-name>EditAlbumServlet</servlet-name>
+		<servlet-class>servlets.EditAlbumServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EditAlbumServlet</servlet-name>
+		<url-pattern>/editAlbum</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description></description>
+		<servlet-name>AlbumServlet</servlet-name>
+		<servlet-class>servlets.AlbumServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AlbumAdminServlet</servlet-name>
+		<url-pattern>/AlbumAdmin</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description></description>
+		<servlet-name>AlbumAdminServlet</servlet-name>
+		<servlet-class>servlets.AlbumAdminServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AlbumServlet</servlet-name>
+		<url-pattern>/Album</url-pattern>
+	</servlet-mapping>
+
 	<servlet>
 		<description></description>
 		<servlet-name>HomeServlet</servlet-name>
-		 <servlet-class>servlets.HomeServlet</servlet-class>
+		<servlet-class>servlets.HomeServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomeServlet</servlet-name>
 		<url-pattern>/index</url-pattern>
 	</servlet-mapping>
+
 	<welcome-file-list>
 		<welcome-file>home</welcome-file>
 		<welcome-file>index.jsp</welcome-file>

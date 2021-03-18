@@ -3,6 +3,7 @@ package models;
 
 public class User {
 
+	private String username;
 	private String firstname;
 	private String lastname;
 	private int birth_year;
@@ -181,4 +182,12 @@ public class User {
 		this.role = role;
 	}
 
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
 }

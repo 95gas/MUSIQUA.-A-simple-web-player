@@ -19,54 +19,39 @@ public class DBUtils {
 	public static List<Song> top_songs(Connection conn) throws SQLException {
 		String sql = "SELECT S.title, S.year, S.duration, descr, A.full_name, AL.title FROM song AS S "
 				+ "INNER JOIN has AS H ON S.id = H.id_song INNER JOIN artist AS A ON A.id = H.id_artist LEFT JOIN album AS AL ON AL.id = H.id_album INNER JOIN genre AS G ON G.id = S.id_genre "
-				+ "INNER JOIN artist AS AR ON AR.id = AL.id_artist "
-				+ "WHERE rate_top = TRUE;";
+				+ "INNER JOIN artist AS AR ON AR.id = AL.id_artist " + "WHERE rate_top = TRUE;";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
 		ResultSet rs = pstm.executeQuery();
 		List<Song> list = new ArrayList<Song>();
-		//ListIterator<Song> cursor = list.listIterator();
-		//String previous_title = " ";
+		// ListIterator<Song> cursor = list.listIterator();
+		// String previous_title = " ";
 
 		while (rs.next()) {
 
 			String title = rs.getString("S.title");
 			String artist = rs.getString("A.full_name");
-			
-			/* add artist to previous song
-			if (title == previous_title) {
-				System.out.println("hello");
-				Song previous_song = cursor.previous();
-				previous_song.addArtist(artist);
-				cursor.next();
+
+			float duration = rs.getFloat("S.duration");
+			String genre = rs.getString("descr");
+			int year = rs.getInt("S.year");
+			String album = rs.getString("AL.title");
+
+			if (rs.wasNull()) { // if song is a single
+				album = " ";
 			}
 
-			else {*/
+			Song best_song = new Song();
+			best_song.setTitle(title);
+			best_song.setDuration(duration);
+			best_song.setGenre(genre);
+			best_song.setArtist(artist);
+			best_song.setAlbum(album);
+			best_song.setYear(year);
+			best_song.setIs_top(true);
 
-				float duration = rs.getFloat("S.duration");
-				String genre = rs.getString("descr");
-				int year = rs.getInt("S.year");
-				String album = rs.getString("AL.title");
-
-				if (rs.wasNull()) { // if song is a single
-					album = " ";
-				}
-
-				Song best_song = new Song();
-				best_song.setTitle(title);
-				best_song.setDuration(duration);
-				best_song.setGenre(genre);
-				best_song.addArtist(artist);
-				best_song.setAlbum(album);
-				best_song.setYear(year);
-				best_song.setIs_top(true);
-
-				list.add(best_song);
-				//cursor.next();
-			//}
-
-			//previous_title = title;
+			list.add(best_song);
 		}
 
 		if (list.size() > 0) {
@@ -78,57 +63,41 @@ public class DBUtils {
 
 	// LIST ALL SONGS
 	public static List<Song> listSongs(Connection conn) throws SQLException {
-		String sql = "SELECT S.title, S.year, S.duration, descr, A.first_name, A.last_name, AL.title"
-				+ "FROM song AS S INNER JOIN has AS H ON S.id = H.id_song"
-				+ "INNER JOIN artist AS A ON A.id = H.id_artist" + "LEFT JOIN album AS AL ON AL.id = H.id_album"
-				+ "INNER JOIN genre AS G ON G.id = S.id_genre" + "INNER JOIN artist AS AR ON AR.id = AL.id_artist;";
+		String sql = "SELECT S.title, S.year, S.duration, descr, A.full_name, AL.title "
+				+ "FROM song AS S INNER JOIN has AS H ON S.id = H.id_song "
+				+ "INNER JOIN artist AS A ON A.id = H.id_artist " + "LEFT JOIN album AS AL ON AL.id = H.id_album "
+				+ "INNER JOIN genre AS G ON G.id = S.id_genre " + "INNER JOIN artist AS AR ON AR.id = AL.id_artist;";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
 		ResultSet rs = pstm.executeQuery();
 		List<Song> list = new ArrayList<Song>();
-		ListIterator<Song> cursor = list.listIterator();
-		String previous_title = "";
 
 		while (rs.next()) {
 
 			String title = rs.getString("S.title");
-			String first_name_artist = rs.getString("first_name");
-			String last_name_artist = rs.getString("last_name");
-			String artist = first_name_artist + " " + last_name_artist;
+			String artist = rs.getString("A.full_name");
 
-			// add artist to previous song
-			if (title == previous_title) {
-				Song previous_song = cursor.previous();
-				previous_song.addArtist(artist);
-				cursor.next();
+			float duration = rs.getFloat("S.duration");
+			String genre = rs.getString("descr");
+			int year = rs.getInt("S.year");
+			String album = rs.getString("AL.title");
+
+			if (rs.wasNull()) { // if song is a single
+				album = " ";
 			}
 
-			else {
+			Song best_song = new Song();
+			best_song.setTitle(title);
+			best_song.setDuration(duration);
+			best_song.setGenre(genre);
+			best_song.setArtist(artist);
+			best_song.setAlbum(album);
+			best_song.setYear(year);
+			best_song.setIs_top(true);
 
-				float duration = rs.getFloat("S.duration");
-				String genre = rs.getString("descr");
-				int year = rs.getInt("S.year");
-				String album = rs.getString("AL.title");
+			list.add(best_song);
 
-				if (rs.wasNull()) { // if song is a single
-					album = " ";
-				}
-
-				Song best_song = new Song();
-				best_song.setTitle(title);
-				best_song.setDuration(duration);
-				best_song.setGenre(genre);
-				best_song.addArtist(artist);
-				best_song.setAlbum(album);
-				best_song.setYear(year);
-				best_song.setIs_top(true);
-
-				list.add(best_song);
-				cursor.next();
-			}
-
-			previous_title = title;
 		}
 
 		if (list.size() > 0) {
@@ -141,31 +110,62 @@ public class DBUtils {
 	// RETUNR ID_GENRE
 	public static int Return_ID_genre(Connection conn, String genre) throws SQLException {
 		String sql = "SELECT id FROM genre WHERE descr = ?";
-
+		int id = -1;
+		
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		pstm.setString(1, genre);
-
+		
 		ResultSet rs = pstm.executeQuery();
 
-		return rs.getInt("id");
+		if (rs.next()) {
+			id = rs.getInt("id");
+		}
+		
+		return id;
 	}
-
+	
 	// RETURN ID_ARTIST
-	public static int Return_ID_artist(Connection conn, String name, String surname) throws SQLException {
-		String sql = "SELECT id FROM artist WHERE first_name = ?, last_name = ?";
+	public static int Return_ID_artist(Connection conn, String full_name) throws SQLException {
+		String sql = "SELECT id FROM artist WHERE full_name = ?;";
+		int id = -1;
+		
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		pstm.setString(1, full_name);
 
+		ResultSet rs = pstm.executeQuery();
+		
+		
+		if (rs.next()) {
+			id = rs.getInt("id");
+		}
+		
+		return id;
+	}
+	
+	// RETURN ID_ALBUM
+	public static int Return_ID_album(Connection conn, String name, String artist, int year) throws SQLException {
+		
+		int idartist = DBUtils.Return_ID_artist(conn, artist);
+		String sql = "SELECT id FROM album WHERE title = ? AND id_artist = ? AND year = ?;";
+		int id = -1;
+		
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		pstm.setString(1, name);
-		pstm.setString(1, surname);
+		pstm.setInt(2, idartist);
+		pstm.setInt(3, year);
 
 		ResultSet rs = pstm.executeQuery();
-
-		return rs.getInt("id");
+		if (rs.next()) {
+			id = rs.getInt("id");
+		}
+	 
+		return id;
 	}
 
 	// ADD SONG (return the id generated by the dbb)
 	public static int insertSong(Connection conn, Song song) throws SQLException {
 		String sql = "Insert into Song values (?,?,?,?,?)";
+		int id = -1;
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
@@ -196,7 +196,9 @@ public class DBUtils {
 
 		ResultSet rs = pstm1.executeQuery();
 
-		int id = rs.getInt("id");
+		if (rs.next()) {
+			id = rs.getInt("id");
+		}
 
 		return id;
 	}
@@ -204,6 +206,7 @@ public class DBUtils {
 	// ADD ARTIST (return the id generated by the dbb)
 	public static int insertArtist(Connection conn, String fullname) throws SQLException {
 		String sql = "Insert into artist values (?)";
+		int id = -1;
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
@@ -219,14 +222,17 @@ public class DBUtils {
 
 		ResultSet rs = pstm1.executeQuery();
 
-		int id = rs.getInt("id");
+		if (rs.next()) {
+			id = rs.getInt("id");
+		}
 
 		return id;
 	}
 
 	// ADD ALBUM (return the id generated by the dbb)
-	public static int insertAlbum(Connection conn, Album album, String firstname, String lastname) throws SQLException {
+	public static int insertAlbum(Connection conn, Album album, String full_name) throws SQLException {
 		String sql = "Insert into album values (?,?,?,?,?)";
+		int id = -1;
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
@@ -234,7 +240,7 @@ public class DBUtils {
 		int year = album.getYear();
 		Float duration = album.getDuration();
 		Blob cover = album.getCover();
-		int id_artist = Return_ID_artist(conn, firstname, lastname);
+		int id_artist = Return_ID_artist(conn, full_name);
 
 		pstm.setString(1, title);
 		pstm.setInt(2, id_artist);
@@ -254,7 +260,9 @@ public class DBUtils {
 
 		ResultSet rs = pstm1.executeQuery();
 
-		int id = rs.getInt("id");
+		if (rs.next()) {
+			id = rs.getInt("id");
+		}
 
 		return id;
 	}
@@ -275,8 +283,7 @@ public class DBUtils {
 
 	// LIST ALBUMS
 	public static List<Album> listAlbums(Connection conn) throws SQLException {
-		String sql = "SELECT title, first_name, last_name, duration, year, cover"
-				+ "FROM album AS AL INNER JOIN artist AS AR ON AL.id = AR.id;";
+		String sql = "SELECT title, full_name, duration, year, cover FROM album AS AL INNER JOIN artist AS AR ON AL.id_artist = AR.id;";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
@@ -286,11 +293,9 @@ public class DBUtils {
 		while (rs.next()) {
 			String title = rs.getString("title");
 			float duration = rs.getFloat("duration");
-			String first_name_artist = rs.getString("first_name");
-			String last_name_artist = rs.getString("last_name");
+			String artist = rs.getString("full_name");
 			int year = rs.getInt("year");
 			Blob cover = rs.getBlob("cover");
-			String artist = first_name_artist + " " + last_name_artist;
 
 			Album album = new Album();
 			album.setName(title);
@@ -313,7 +318,7 @@ public class DBUtils {
 	public static List<Playlist> findPlaylists(Connection conn, String user) throws SQLException {
 		String sql = "SELECT title "
 				+ "FROM playlist AS P INNER JOIN listen_to AS L ON P.id = id_playlist INNER JOIN users AS U ON U.id = id_user;"
-				+ "WHERE U.email = ?";
+				+ "WHERE U.username = ?";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		pstm.setString(1, user);
@@ -337,48 +342,114 @@ public class DBUtils {
 		return null;
 	}
 
-	/* ADD PLAYLIST
-	public static void add_playlist(Connection conn, Playlist playlist) throws SQLException {
-		String sql = "Insert into playlist values (?, ?)";
+
+	// list playlist per user TEST
+	public static List<Playlist> test(Connection conn) throws SQLException {
+		String sql = "SELECT title "
+				+ "FROM playlist AS P INNER JOIN listen_to AS L ON P.id = id_playlist INNER JOIN users AS U ON U.id = id_user;";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
-
-		String title = playlist.getTitle();
-		int id = playlist.getId();
-
-		pstm.setString(2, title);
-		pstm.setInt(1, id);
-
-		pstm.executeUpdate();
-	}
-
-
-	public static void link_playlsit(Connection conn, int id_playlist, String email) throws SQLException {
-		String sql = "SELECT id FROM users WHERE email = ?";
-
-		PreparedStatement pstm = conn.prepareStatement(sql);
-		pstm.setString(1, email);
 
 		ResultSet rs = pstm.executeQuery();
 
-		int id = rs.getInt("id");
+		List<Playlist> list = new ArrayList<Playlist>();
 
-		String sql1 = "Insert into listen_to values (?, ?)";
+		while (rs.next()) {
 
-		PreparedStatement pstm1 = conn.prepareStatement(sql1);
+			String title = rs.getString("title");
+			Playlist playlist = new Playlist(title);
+			list.add(playlist);
+		}
 
-		pstm1.setInt(2, id_playlist);
-		pstm1.setInt(1, id);
+		if (list.size() > 0) {
+			return list;
+		}
 
-		pstm1.executeUpdate();
+		return null;
 	}
-*/
-	public static void deleteProduct(Connection conn, String code) throws SQLException {
-		String sql = "Delete From Product where Code= ?";
+	
+	public static void AddToPlaylist(Connection conn, int idSong, int idPlaylist) throws SQLException {
+		String sql = "INSERT INTO contain"
+				+ "VALUES (?,?);";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
-		pstm.setString(1, code);
+		pstm.setInt(1, idSong);
+		pstm.setInt(2, idPlaylist);
+
+		pstm.executeUpdate();
+		
+	}
+	
+	public static int find_IDSong(Connection conn, String name, String artist) throws SQLException {
+		String sql = "SELECT S.id "
+				+ "FROM song AS S INNER JOIN has AS H ON id_song =S.id "
+				+ "INNER JOIN artist AS A ON A.id = id_artist "
+				+ "WHERE title = ? AND full_name = ?;";
+		int id = -1;
+
+		PreparedStatement pstm = conn.prepareStatement(sql);
+
+		pstm.setString(1, name);
+		pstm.setString(2, artist);
+
+		ResultSet rs = pstm.executeQuery();
+
+		if (rs.next()) {
+			id = rs.getInt("id");
+		}
+		
+		return id;
+	}
+	
+	public static int find_IDPlaylist(Connection conn, String name, String username) throws SQLException {
+		String sql = "SELECT id"
+				+ "FROM playlist AS P INNER JOIN listen_to ON P.id = id_playlist"
+				+ "INNER JOIN users AS U ON U.id = id_user"
+				+ "WHERE title = ? AND username = ?;";
+		int id = -1;
+
+		PreparedStatement pstm = conn.prepareStatement(sql);
+
+		pstm.setString(1, name);
+		pstm.setString(2, username);
+
+		ResultSet rs = pstm.executeQuery();
+		
+		if (rs.next()) {
+			id = rs.getInt("id");
+		}
+		
+		return id;
+	}
+	
+	public static void updateAlbum(Connection conn, int id, String title, String artist, int year) throws SQLException {
+		
+		int id_artist = Return_ID_artist(conn, artist);
+		
+		if (id_artist == -1) {
+			System.out.println("Artist not found! Cannot edit the album");
+			return;
+		}
+		
+		String sql = "UPDATE album SET title = ? , year = ?, id_artist = ?  WHERE id= ?;";
+
+		PreparedStatement pstm = conn.prepareStatement(sql);
+
+		pstm.setString(1, title);
+		pstm.setInt(2, year );
+		pstm.setInt(3, id_artist);
+		pstm.setInt(4, id);
+
+		pstm.executeUpdate();
+	}
+	
+	public static void deleteAlbum(Connection conn, int id_album) throws SQLException {
+		String sql = "Delete From album where id = ?";
+
+		PreparedStatement pstm = conn.prepareStatement(sql);
+
+		pstm.setInt(1, id_album);
 
 		pstm.executeUpdate();
 	}

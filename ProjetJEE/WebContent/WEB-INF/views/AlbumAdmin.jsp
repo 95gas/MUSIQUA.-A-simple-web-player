@@ -3,6 +3,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -29,15 +30,30 @@
 
 <body>
 
-	<!-- Start header-->
+	<!-- Preloader -->
+	<div class="loader">
+		<!-- Preloader inner -->
+		<div class="loader-inner">
+			<svg width="120" height="220" viewbox="0 0 100 100"
+				class="loading-spinner" version="1.1"
+				xmlns="http://www.w3.org/2000/svg">
+        <circle class="spinner" cx="50" cy="50" r="21" fill="#13181d"
+					stroke-width="2" />
+      </svg>
+		</div>
+		<!-- End preloader inner -->
+	</div>
+	<!-- End preloader-->
+
+	<!-- ===============  START HEADER ================ -->
 	<header class="header default">
 		<div class=" left-part">
-			<a class="logo" href="index">
+			<a class="logo" href="index.html">
 				<h2 class="mb-0 uppercase">musiqua.</h2>
 			</a>
 		</div>
 
-		<!-- ===============  NAVIGATION MENU User Library ================ -->
+		<!--   Navigation menu User Library -->
 		<div class="middle-part">
 			<div class="button" id="button-album"
 				style="background-color: #BFC0C0">
@@ -46,59 +62,71 @@
 			</div>
 			<div class="button" id="button-music">
 				<div id="circle"></div>
-				<a href="AllSongs">All music</a>
+				<a href="AllsongsAdmin">All music</a>
 			</div>
 			<div class="button" id="button-playlist">
 				<div id="circle"></div>
-				<a href="MyPlaylist">My playlists</a>
+				<a href="">My playlists</a>
 			</div>
 		</div>
-		<!-- =============== END NAVIGATION MENU User Library ================ -->
+		<!-- end navigation menu User Library -->
 
 		<div class="right-part">
 			<nav class="main-nav">
 				<ul class="main-menu list-inline">
 					<li><a href="index">Home</a></li>
-					<li><a href="ProfilePage"><i class="icon-user"></i>Profile</a></li>
+					<li><a href="userList"><i class="icon-user"></i></a></li>
 
 				</ul>
 			</nav>
 		</div>
 	</header>
-	<!-- End header-->
+	<!-- ===============  END HEADER ================ -->
 
 	<!-- =============== START ALBUM CATALOG ================ -->
 	<section class="aquraFilter paddingGrid albumFilter" id="album-wall"
 		style="background-image: url('resources/assets/img/wall1.png'); background-repeat: round">
 		<div class="container">
 
-			<!-- start filter -->
+			<!-- start  -->
 			<div class="aqura-filter-content list-albums">
 				<ul class="list-feature clearfix">
-
 					<c:forEach items="${list_album}" var="album">
-
+						
+					<form method="post">
 						<li class="col-md-3 col-sm-3 col-xs-12">
 							<div class="album-icon">
 								<span class="thumbs-album"> <img width="270" height="270"
 									src="resources/assets/img/content/albumCover.png">
 								</span> <span class="disk"></span>
-							</div> <!-- END ALBUM ICON -->
+							</div> <!-- end album icon -->
 							<div class="name">
+								<input type="hidden" id="album_name" name="album_name" value="${album.name}">
 								<h3>${album.name}</h3>
 								<p style="word-spacing: 5px;">
 									<i class="fas fa-microphone" style="font-size: 1rem"></i>
+									<input type="hidden" id="album_artist" name="album_artist" value="${album.artist}">
 									${album.artist}
 								</p>
-								<p style="word-spacing: 10px;">${album.duration}h - ${album.year}</p>
+								<p style="word-spacing: 10px;">
+								<input type="hidden" id="album_duration" name="album_duration" value="${album.duration}">${album.duration}h 
+								- 
+								<input type="hidden" id="album_year" name="album_year" value="${album.year}">${album.year}
+								</p>
+								<span class="edit" id="edit">
+									<button type="submit" class="btn_op" formmethod="post">
+										<i class="fas fa-pen"></i>
+									</button>
+								</span> 
 							</div> <!-- end name -->
 						</li>
+					</form>
 
 					</c:forEach>
+					
 				</ul>
 			</div>
-			<!-- end aqura-filter-cotent -->
-			<!-- end filter -->
+
 		</div>
 		<!-- end container -->
 	</section>
@@ -117,7 +145,6 @@
 				</div>
 			</div>
 		</div>
-		</div>
 	</section>
 	<!-- =============== END FOOTER ================ -->
 
@@ -128,7 +155,6 @@ Hence, the order of libraries importation counts. -->
 
 	<!-- javascript scripts -->
 	<script src="resources/js/script.js"></script>
-
 </body>
 
 </html>

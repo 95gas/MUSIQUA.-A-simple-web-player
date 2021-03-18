@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-	
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,8 +51,7 @@
 		</div>
 		<div class="subtitle">
 			<div class="discover">
-				<h1 class="medium text-white mb-0">Check out the top songs of
-					this month!</h1>
+				<h1 class="medium text-white mb-0">Check out the top songs of this month!</h1>
 			</div>
 			<a href="#content"> <i class="fas fa-angle-double-down"></i></a>
 		</div>
@@ -68,11 +67,9 @@
 				<nav class="main-nav">
 					<ul class="main-menu list-inline">
 						<li><a class="scroll list-inline-item" href="#welcome">Home</a></li>
-						<li class="block-helper"><a href="LoginServlet"
-							class="scroll"><span><i class="icon-user">Log
-										in/Sign up</i></span></a></li>
-						<li><a class="scroll list-inline-item" href="AlbumServlet">Music
-								Library</a></li>
+						<li class="block-helper"><a href="Login"
+							class="scroll"><span><i class="icon-user"></i>Log in/Sign up</span></a></li>
+						<li><a class="scroll list-inline-item" href="Album">Music Library</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -153,12 +150,12 @@
 					<div id="post-59"
 						class="jp-playlist post-59 albums type-albums status-publish has-post-thumbnail hentry albums-category-new">
 						<div class="about-list clearfix">
-							<span class="about-name">  MUSIC </span> 
-							<span class="about-length">LENGTH </span>
+							<span class="about-name"> MUSIC </span> <span
+								class="about-length">LENGTH </span>
 						</div>
 
 						<c:forEach items="${topSongs}" var="song">
-						
+
 							<div class="trak-item"
 								data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/flute.mp3"
 								data-artist="${song.artist}"
@@ -170,16 +167,19 @@
 										<i class="fa fa-play"></i>
 									</div>
 								</div>
-								
+
 								<div class="name-artist">
 									<div class="center-y-table">
-										<pre><h2>${song.title} -  ${song.artist} -  ${song.album} -  ${song.genre}</h2></pre>
+										<pre>
+											<h2>${song.title} -  ${song.artist} -  ${song.album} -  ${song.genre}</h2>
+										</pre>
 									</div>
 								</div>
-	
-								<time class="trak-duration" datetime="2016-06-02">${song.duration} </time>
+
+								<time class="trak-duration" datetime="2016-06-02">${song.duration}
+								</time>
 							</div>
-							
+
 						</c:forEach>
 
 					</div>

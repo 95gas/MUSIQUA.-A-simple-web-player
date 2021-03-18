@@ -1,16 +1,24 @@
 package servlets;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
+
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database_connection.DBUtils;
+import database_connection.MyUtils;
+import models.Playlist;
+import models.User;
 
 /**
  * Servlet implementation class MyPlaylistServlet
  */
-@WebServlet("/MyPlaylistServlet")
 public class MyPlaylistServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -26,7 +34,26 @@ public class MyPlaylistServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+		Connection conn = MyUtils.getStoredConnection(request);	
+		List<Playlist> listPlaylist = null;
+		String errorString = null;
+		//HttpSession session = request.getSession();
+		//User man = MyUtils.getLoginedUser(session);
+
+		try {
+			//listPlaylist = DBUtils.findPlaylists(conn, man.getUsername());
+			listPlaylist = DBUtils.test(conn);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			errorString = e.getMessage();
+		}
+
+		// Store info in request attribute, before forward to views
+        request.setAttribute("errorString", errorString);
+        request.setAttribute("list_play", listPlaylist);
+        
         this.getServletContext().getRequestDispatcher("/WEB-INF/views/MyPlaylist.jsp").forward(request, response);
 
 	}
@@ -35,7 +62,7 @@ public class MyPlaylistServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		doGet(request, response);
 	}
 
