@@ -52,7 +52,7 @@ CREATE TABLE song (
 );
 
 INSERT INTO song (title, year, duration, rate_top, id_genre)
-VALUES ('Litte madness', '2004', 3.2,TRUE, 3),
+VALUES ('Litte madness', 2004, 3.2,TRUE, 3),
 ('What is my age again?', '1990', 3.2,FALSE, 4),
 ('takeaway', '2004', 3.2,TRUE, 3),
 ('Closer-To-You', '2004', 3.2,TRUE, 3),
@@ -124,8 +124,8 @@ CREATE TABLE users (
 );
 INSERT INTO users (username, first_name, last_name, birth_year, birth_month, birth_day, gender, country, city, street, street_number, postal_code, email, psw, facebook_id, apple_id, gmail_id, id_role )
 VALUES ('95gas1','francesco1','gazzola',1995,08,25,'male','Italy','Padova','street1','23',3204,'client@hotmail.it','test1', NULL, NULL, NULL, 1),
-('95gas2','francesco1','gazzola',1995,08,25,'male','Italy','Padova','street1','23',3204,'admin@hotmail.it','test1', NULL, NULL, NULL, 1),
-('95gas3','francesco1','gazzola',1995,08,25,'male','Italy','Padova','street1','23',3204,'adminmusic@hotmail.it','test1', NULL, NULL, NULL, 1);
+('95gas2','francesco1','gazzola',1995,08,25,'male','Italy','Padova','street1','23',3204,'admin@hotmail.it','test1', NULL, NULL, NULL, 2),
+('95gas3','francesco1','gazzola',1995,08,25,'male','Italy','Padova','street1','23',3204,'adminmusic@hotmail.it','test1', NULL, NULL, NULL, 3);
 
 
 CREATE TABLE listen_to (

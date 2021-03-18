@@ -110,11 +110,9 @@ public class DBUtils {
 		return null;
 	}
 
-	
 	// LIST ALL USER
 	public static List<User> listUser(Connection conn) throws SQLException {
-		String sql = "SELECT username, first_name, last_name, email"
-				+ "FROM users;";
+		String sql = "SELECT username, first_name, last_name, email FROM users;";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
@@ -124,10 +122,9 @@ public class DBUtils {
 		while (rs.next()) {
 
 			String username = rs.getString("username");
-			String firstname = rs.getString("firs_tname");
-			String lastname = rs.getString("laast_name");
+			String firstname = rs.getString("first_name");
+			String lastname = rs.getString("last_name");
 			String email = rs.getString("email");
-
 
 			User client = new User();
 			client.setUsername(username);
@@ -172,7 +169,6 @@ public class DBUtils {
 		pstm.setString(1, full_name);
 
 		ResultSet rs = pstm.executeQuery();
-
 
 		if (rs.next()) {
 			id = rs.getInt("id");
@@ -355,9 +351,7 @@ public class DBUtils {
 
 	// list playlist per user
 	public static List<Playlist> findPlaylists(Connection conn, String user) throws SQLException {
-		String sql = "SELECT title "
-				+ "FROM playlist AS P INNER JOIN listen_to AS L ON P.id = id_playlist INNER JOIN users AS U ON U.id = id_user;"
-				+ "WHERE U.username = ?";
+		String sql = "SELECT title FROM playlist AS P INNER JOIN listen_to AS L ON P.id = id_playlist INNER JOIN users AS U ON U.id = id_user WHERE U.username = ?";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		pstm.setString(1, user);
@@ -381,11 +375,9 @@ public class DBUtils {
 		return null;
 	}
 
-
 	// list playlist per TEST (TO DELETE)
 	public static List<Playlist> test(Connection conn) throws SQLException {
-		String sql = "SELECT title "
-				+ "FROM playlist AS P INNER JOIN listen_to AS L ON P.id = id_playlist INNER JOIN users AS U ON U.id = id_user;";
+		String sql = "SELECT title FROM playlist AS P INNER JOIN listen_to AS L ON P.id = id_playlist INNER JOIN users AS U ON U.id = id_user;";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
@@ -408,8 +400,7 @@ public class DBUtils {
 	}
 
 	public static void AddToPlaylist(Connection conn, int idSong, int idPlaylist) throws SQLException {
-		String sql = "INSERT INTO contain"
-				+ "VALUES (?,?);";
+		String sql = "INSERT INTO contain(id_song, id_playlist) VALUES (?,?);";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
@@ -421,10 +412,7 @@ public class DBUtils {
 	}
 
 	public static int find_IDSong(Connection conn, String name, String artist) throws SQLException {
-		String sql = "SELECT S.id "
-				+ "FROM song AS S INNER JOIN has AS H ON id_song =S.id "
-				+ "INNER JOIN artist AS A ON A.id = id_artist "
-				+ "WHERE title = ? AND full_name = ?;";
+		String sql = "SELECT S.id FROM song AS S INNER JOIN has AS H ON id_song =S.id INNER JOIN artist AS A ON A.id = id_artist WHERE title = ? AND full_name = ?;";
 		int id = -1;
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
@@ -442,10 +430,8 @@ public class DBUtils {
 	}
 
 	public static int find_IDPlaylist(Connection conn, String name, String username) throws SQLException {
-		String sql = "SELECT id"
-				+ "FROM playlist AS P INNER JOIN listen_to ON P.id = id_playlist"
-				+ "INNER JOIN users AS U ON U.id = id_user"
-				+ "WHERE title = ? AND username = ?;";
+		String sql = "SELECT id" + "FROM playlist AS P INNER JOIN listen_to ON P.id = id_playlist"
+				+ "INNER JOIN users AS U ON U.id = id_user" + "WHERE title = ? AND username = ?;";
 		int id = -1;
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
@@ -462,7 +448,7 @@ public class DBUtils {
 		return id;
 	}
 
-	//UPDATE ALBUM
+	// UPDATE ALBUM
 	public static void updateAlbum(Connection conn, int id, String title, String artist, int year) throws SQLException {
 
 		int id_artist = Return_ID_artist(conn, artist);
@@ -477,15 +463,16 @@ public class DBUtils {
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
 		pstm.setString(1, title);
-		pstm.setInt(2, year );
+		pstm.setInt(2, year);
 		pstm.setInt(3, id_artist);
 		pstm.setInt(4, id);
 
 		pstm.executeUpdate();
 	}
 
-	//UPDATE SONG
-	public static void updateSong(Connection conn, int id_song, String title, String artist, int year, String genre, Float duration, String album, boolean top) throws SQLException {
+	// UPDATE SONG
+	public static void updateSong(Connection conn, int id_song, String title, String artist, int year, String genre,
+			Float duration, String album, boolean top) throws SQLException {
 
 		int id_artist = Return_ID_artist(conn, artist);
 		int id_genre = Return_ID_genre(conn, genre);
@@ -505,11 +492,11 @@ public class DBUtils {
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
 		pstm.setString(1, title);
-		pstm.setInt(2, year );
+		pstm.setInt(2, year);
 		pstm.setFloat(3, duration);
 		pstm.setBoolean(4, top);
-		pstm.setInt(5,id_genre);
-		pstm.setInt(6,id_song);
+		pstm.setInt(5, id_genre);
+		pstm.setInt(6, id_song);
 
 		pstm.executeUpdate();
 
@@ -519,38 +506,39 @@ public class DBUtils {
 
 		pstm.setInt(1, id_song);
 		pstm.setInt(2, id_artist);
-		pstm.setInt(3, id_album );
+		pstm.setInt(3, id_album);
 
 		pstm.executeUpdate();
 	}
 
 	// RETUNR ID_SONG
-		public static int Return_ID_song(Connection conn, String title, int year, int id_genre, Float duration) throws SQLException {
-			String sql = "SELECT id FROM song WHERE title = ? AND year = ? AND id_genre = ? AND duration = ?;";
-			int id = -1;
+	public static int Return_ID_song(Connection conn, String title, int year, int id_genre, Float duration)
+			throws SQLException {
+		String sql = "SELECT id FROM song WHERE title = ? AND year = ? AND id_genre = ? AND duration = ?;";
+		int id = -1;
 
-			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setString(1, title);
-			pstm.setInt(2, year);
-			pstm.setInt(3, id_genre);
-			pstm.setFloat(4, duration);
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		pstm.setString(1, title);
+		pstm.setInt(2, year);
+		pstm.setInt(3, id_genre);
+		pstm.setFloat(4, duration);
 
-			ResultSet rs = pstm.executeQuery();
+		ResultSet rs = pstm.executeQuery();
 
-			if (rs.next()) {
-				id = rs.getInt("id");
-			}
-
-			return id;
+		if (rs.next()) {
+			id = rs.getInt("id");
 		}
 
-	//INSERT SONG
-	public static void insertSong(Connection conn, String title, String artist, int year, String genre, Float duration, String album, boolean top) throws SQLException {
+		return id;
+	}
+
+	// INSERT SONG
+	public static void insertSong(Connection conn, String title, String artist, int year, String genre, Float duration,
+			String album, boolean top) throws SQLException {
 
 		int id_artist = Return_ID_artist(conn, artist);
 		int id_genre = Return_ID_genre(conn, genre);
 		int id_album = Return_ID_album(conn, album, artist, year);
-
 
 		if (id_artist == -1) {
 			System.out.println("Artist not found! Cannot edit the song");
@@ -567,21 +555,19 @@ public class DBUtils {
 			return;
 		}
 
-
 		String sql = "INSERT INTO song (title, year, duration, rate_top, id_genre) VALUES (? , ?, ?, ?, ?);";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
 		pstm.setString(1, title);
-		pstm.setInt(2, year );
+		pstm.setInt(2, year);
 		pstm.setFloat(3, duration);
 		pstm.setBoolean(4, top);
-		pstm.setInt(5,id_genre);
+		pstm.setInt(5, id_genre);
 
 		pstm.executeUpdate();
 
 		int id_song = Return_ID_song(conn, title, year, id_genre, duration);
-
 
 		sql = "INSERT INTO has (id_song, id_artist, id_album) VALUES (? , ?, ?);";
 
@@ -589,35 +575,35 @@ public class DBUtils {
 
 		pstm.setInt(1, id_song);
 		pstm.setInt(2, id_artist);
-		pstm.setInt(3, id_album );
+		pstm.setInt(3, id_album);
 
 		pstm.executeUpdate();
 	}
+
 	// ADD User
 	public static int insertUser(Connection conn, User user) throws SQLException {
 		String sql = "Insert into users values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
-
-		 String username = user.getUsername();
-		 String firstname = user.getFirstname();
-		 String lastname = user.getLastname();
-		 int birth_year = user.getBirth_year();
-		 int birth_month = user.getBirth_month();
-		 int birth_day = user.getBirth_day();
-		 String gender = user.getGender();
-		 String country = user.getCountry();
-		 String city = user.getCity();
-		 String street = user.getStreet();
-		 String street_number = user.getStreet_number();
-		 int postcode = user.getPostcode();
-		 String email = user.getEmail();
-		 String psw = user.getPsw();
-		 String facetoken = user.getFacetoken();
-		 String appletoken = user.getAppletoken();
-		 String gmailtoken = user.getGmailtoken();
-		 String role = user.getRole();
+		String username = user.getUsername();
+		String firstname = user.getFirstname();
+		String lastname = user.getLastname();
+		int birth_year = user.getBirth_year();
+		int birth_month = user.getBirth_month();
+		int birth_day = user.getBirth_day();
+		String gender = user.getGender();
+		String country = user.getCountry();
+		String city = user.getCity();
+		String street = user.getStreet();
+		String street_number = user.getStreet_number();
+		int postcode = user.getPostcode();
+		String email = user.getEmail();
+		String psw = user.getPsw();
+		String facetoken = user.getFacetoken();
+		String appletoken = user.getAppletoken();
+		String gmailtoken = user.getGmailtoken();
+		String role = user.getRole();
 
 		pstm.setString(1, username);
 		pstm.setString(2, firstname);
@@ -641,27 +627,44 @@ public class DBUtils {
 		return pstm.executeUpdate();
 
 	}
-    public static boolean findUser(Connection conn, //
-            String userName, String password) throws SQLException {
- 
-        String sql = "Select a.User_Name, a.Password, from users a " //
-                + " where a.User_Name = ? and a.password= ?";
- 
-        PreparedStatement pstm = conn.prepareStatement(sql);
-        pstm.setString(1, userName);
-        pstm.setString(2, password);
-        ResultSet rs = pstm.executeQuery();
- 
-        if (rs.next()) {
-            User user = new User();
-            user.setUsername(userName);
-            user.setPsw(password);
-            return true;
-        }
-        return false;
-    }
 
-    public static void deleteAlbum(Connection conn, int id_album) throws SQLException {
+	public static User findUser(Connection conn, String email, String password) throws SQLException {
+
+		String sql = "Select id, username, first_name, last_name, id_role FROM users WHERE email = ? AND psw = ?";
+
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		pstm.setString(1, email);
+		pstm.setString(2, password);
+
+		ResultSet rs = pstm.executeQuery();
+		User user = new User();
+
+		if (rs.next()){
+		user.setUsername(rs.getString("username"));
+		user.setFirstname(rs.getString("first_name"));
+		user.setLastname(rs.getString("last_name"));	
+		user.setID(rs.getInt("id"));
+		
+		int id_role = rs.getInt("id_role");
+		
+		sql = "Select type FROM roles WHERE id = ?";
+		pstm = conn.prepareStatement(sql);
+		pstm.setInt(1, id_role);
+		rs = pstm.executeQuery();
+		rs.next();
+		
+		user.setRole(rs.getString("type"));
+		
+		}
+		else {
+			user = null;
+		}
+		
+		
+		return user;
+	}
+
+	public static void deleteAlbum(Connection conn, int id_album) throws SQLException {
 		String sql = "Delete From song where id = ?";
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
@@ -670,7 +673,7 @@ public class DBUtils {
 		pstm.executeUpdate();
 	}
 
-	//DELETE SONG
+	// DELETE SONG
 	public static void deleteSong(Connection conn, int id_song) throws SQLException {
 		String sql = "Delete From song where id = ?";
 

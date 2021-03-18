@@ -3,6 +3,7 @@ package models;
 
 public class User {
 
+	private int ID;
 	private String username;
 	private String firstname;
 	private String lastname;
@@ -194,4 +195,11 @@ public class User {
 		this.username = username;
 	}
 
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
 }

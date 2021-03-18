@@ -17,7 +17,14 @@ import database_connection.DBUtils;
 import database_connection.MyUtils;
 import models.User;
 
-public class UserListServlet {
+public class UserListServlet extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
+
+	public UserListServlet() {
+		super();
+	}
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -37,9 +44,9 @@ public class UserListServlet {
 
 		// Store info in request attribute, before forward to views
         request.setAttribute("errorString", errorString);
-        request.setAttribute("listAllSongs", userList);
+        request.setAttribute("Userlist", userList);
 		
-		getServletContext().getRequestDispatcher("/WEB-INF/views/UserList.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/views/UserList.jsp").forward(request, response);
 	}
 
 	/**
