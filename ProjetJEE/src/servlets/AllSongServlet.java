@@ -25,95 +25,95 @@ import models.Song;
 @WebServlet("/AllSongServlet")
 public class AllSongServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AllSongServlet() {
-        super();
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		Connection conn = MyUtils.getStoredConnection(request);	
+	public AllSongServlet() {
+		super();
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		Connection conn = MyUtils.getStoredConnection(request);
 		List<Song> allsongs = null;
 		String errorString = null;
 		List<Playlist> listPlaylist = null;
+		HttpSession session = request.getSession();
+		User user = new User();
+		user = MyUtils.getLoginedUser(session);
 
-		//HttpSession session = request.getSession();
-		//User man = MyUtils.getLoginedUser(session);
-		
 		try {
-			//listPlaylist = DBUtils.findPlaylists(conn, man.getUsername());
-			listPlaylist = DBUtils.test(conn);
-			allsongs = DBUtils.listSongs(conn);
 			
+			listPlaylist = DBUtils.findPlaylists(conn, user.getUsername());
+			allsongs = DBUtils.listSongs(conn);
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			errorString = e.getMessage();
 		}
 
 		// Store info in request attribute, before forward to views
-        request.setAttribute("errorString", errorString);
-        request.setAttribute("listAllSongs", allsongs);
-        request.setAttribute("list_play", listPlaylist);
-        
-        
-        HttpSession session = request.getSession();
-        User user = new User();
-        user = MyUtils.getLoginedUser(session);
-        request.setAttribute("user_session", user);
-		
+		request.setAttribute("errorString", errorString);
+		request.setAttribute("listAllSongs", allsongs);
+		request.setAttribute("list_play", listPlaylist);
+
+		request.setAttribute("user_session", user);
+
 		this.getServletContext().getRequestDispatcher("/WEB-INF/views/AllSongs.jsp").forward(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		Connection conn = MyUtils.getStoredConnection(request);
-		
+
 		String title = (String) request.getParameter("title");
 		String artist = (String) request.getParameter("artist");
 		String playlist = (String) request.getParameter("title_playlist");
 		String errorString = null;
-		
+
 		HttpSession session = request.getSession();
 		User man = MyUtils.getLoginedUser(session);
-		
-		int id_song=0;
-		int id_playlist=0;
-		 
-        try {
-        	
-            id_song = DBUtils.find_IDSong(conn, title, artist);
-            id_playlist = DBUtils.find_IDSong(conn, playlist, man.getUsername());
-            DBUtils.AddToPlaylist(conn, id_song, id_playlist);
-            
-        } catch (SQLException e) {
-            e.printStackTrace();
-            errorString = e.getMessage();
-        }
 
-        // If error, forward to Edit page.
-        if (errorString != null) {
-        	System.out.println("Error during adding new song to a playlist!");
-            RequestDispatcher dispatcher = request.getServletContext()
-                    .getRequestDispatcher("/WEB-INF/views/AllSongs.jsp");
-            dispatcher.forward(request, response);
-        }
+		int id_song = 0;
+		int id_playlist = 0;
 
-        else {
-        	System.out.println("Song added to the playlist!");
-            RequestDispatcher dispatcher = request.getServletContext()
-                    .getRequestDispatcher("/WEB-INF/views/AllSongs.jsp");
-            dispatcher.forward(request, response);
-        }
-		
+		try {
+
+			id_song = DBUtils.find_IDSong(conn, title, artist);
+			id_playlist = DBUtils.find_IDSong(conn, playlist, man.getUsername());
+			DBUtils.AddToPlaylist(conn, id_song, id_playlist);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			errorString = e.getMessage();
+		}
+
+		// If error, forward to Edit page.
+		if (errorString != null) {
+			System.out.println("Error during adding new song to a playlist!");
+			RequestDispatcher dispatcher = request.getServletContext()
+					.getRequestDispatcher("/WEB-INF/views/AllSongs.jsp");
+			dispatcher.forward(request, response);
+		}
+
+		else {
+			System.out.println("Song added to the playlist!");
+			RequestDispatcher dispatcher = request.getServletContext()
+					.getRequestDispatcher("/WEB-INF/views/AllSongs.jsp");
+			dispatcher.forward(request, response);
+		}
+
 	}
 
 }

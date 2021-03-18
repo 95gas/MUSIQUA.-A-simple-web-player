@@ -557,7 +557,7 @@ public class DBUtils {
 	}
 
 	// ADD User
-	public static void insertUser(Connection conn, User user) throws SQLException {
+	public static int insertUser(Connection conn, User user) throws SQLException {
 		String sql = "Insert into users values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
@@ -635,6 +635,7 @@ public class DBUtils {
 		else {
 			user = null;
 		}
+		
 		
 		return user;
 	}
