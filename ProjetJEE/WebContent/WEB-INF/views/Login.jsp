@@ -116,7 +116,7 @@
           <div>
             <div class="row_log_in">
               <div class="col_log_in">
-                <a id="sign-up-link" class="btn btn-block btn-default" role="button" href="signup.html">Sign up for Musiqua</a>
+                <a id="sign-up-link" class="btn btn-block btn-default" role="button" href="SignUpServlet">Sign up for Musiqua</a>
               </div>
             </div>
           </div>
