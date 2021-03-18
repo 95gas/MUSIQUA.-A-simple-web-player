@@ -19,12 +19,32 @@
 
 	<servlet>
 		<description></description>
+		<servlet-name>addSongServlet</servlet-name>
+		<servlet-class>servlets.addSongServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>addSongServlet</servlet-name>
+		<url-pattern>/addSong</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description></description>
 		<servlet-name>MyPlaylistServlet</servlet-name>
 		<servlet-class>servlets.MyPlaylistServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>MyPlaylistServlet</servlet-name>
 		<url-pattern>/MyPlaylist</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description></description>
+		<servlet-name>AllSongsAdminServlet</servlet-name>
+		<servlet-class>servlets.AllSongsAdminServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AllSongsAdminServlet</servlet-name>
+		<url-pattern>/AllSongsAdmin</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -36,16 +56,6 @@
 		<servlet-name>AllSongServlet</servlet-name>
 		<url-pattern>/AllSongs</url-pattern>
 	</servlet-mapping>
-	
-	<servlet>
-		<description></description>
-		<servlet-name>EditAlbumServlet</servlet-name>
-		<servlet-class>servlets.EditAlbumServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>EditAlbumServlet</servlet-name>
-		<url-pattern>/editAlbum</url-pattern>
-	</servlet-mapping>
 
 	<servlet>
 		<description></description>
@@ -56,7 +66,7 @@
 		<servlet-name>AlbumAdminServlet</servlet-name>
 		<url-pattern>/AlbumAdmin</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<description></description>
 		<servlet-name>AlbumAdminServlet</servlet-name>

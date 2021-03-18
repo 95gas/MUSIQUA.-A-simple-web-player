@@ -62,7 +62,7 @@
 			</div>
 			<div class="button" id="button-music">
 				<div id="circle"></div>
-				<a href="AllsongsAdmin">All music</a>
+				<a href="AllSongsAdmin">All music</a>
 			</div>
 			<div class="button" id="button-playlist">
 				<div id="circle"></div>

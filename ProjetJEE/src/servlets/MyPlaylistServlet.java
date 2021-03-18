@@ -38,12 +38,11 @@ public class MyPlaylistServlet extends HttpServlet {
 		Connection conn = MyUtils.getStoredConnection(request);	
 		List<Playlist> listPlaylist = null;
 		String errorString = null;
-		//HttpSession session = request.getSession();
-		//User man = MyUtils.getLoginedUser(session);
+		HttpSession session = request.getSession();
+		User man = MyUtils.getLoginedUser(session);
 
 		try {
-			//listPlaylist = DBUtils.findPlaylists(conn, man.getUsername());
-			listPlaylist = DBUtils.test(conn);
+			listPlaylist = DBUtils.findPlaylists(conn, man.getUsername());
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

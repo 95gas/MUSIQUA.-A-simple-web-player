@@ -45,7 +45,7 @@ CREATE TABLE song (
     id INT PRIMARY KEY auto_increment,
     title VARCHAR(255) NOT NULL,
     year INT,
-    duration INT,
+    duration float,
     rate_top BOOLEAN,
     id_genre INT,
     FOREIGN KEY (id_genre) REFERENCES genre (id)
@@ -88,8 +88,8 @@ CREATE TABLE contain (
 	id_song INT,
     id_playlist INT,
     PRIMARY KEY (id_song, id_playlist),
-    FOREIGN KEY (id_song) REFERENCES song (id),
-	FOREIGN KEY (id_playlist) REFERENCES playlist (id)
+    FOREIGN KEY (id_song) REFERENCES song (id) ON DELETE CASCADE,
+	FOREIGN KEY (id_playlist) REFERENCES playlist (id) ON DELETE CASCADE
 );
 
 CREATE TABLE roles (

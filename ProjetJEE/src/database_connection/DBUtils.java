@@ -49,7 +49,6 @@ public class DBUtils {
 			best_song.setArtist(artist);
 			best_song.setAlbum(album);
 			best_song.setYear(year);
-			best_song.setIs_top(true);
 
 			list.add(best_song);
 		}
@@ -63,7 +62,7 @@ public class DBUtils {
 
 	// LIST ALL SONGS
 	public static List<Song> listSongs(Connection conn) throws SQLException {
-		String sql = "SELECT S.title, S.year, S.duration, descr, A.full_name, AL.title "
+		String sql = "SELECT S.id, S.title, S.year, S.duration, S.rate_top,descr, A.full_name, AL.title "
 				+ "FROM song AS S INNER JOIN has AS H ON S.id = H.id_song "
 				+ "INNER JOIN artist AS A ON A.id = H.id_artist " + "LEFT JOIN album AS AL ON AL.id = H.id_album "
 				+ "INNER JOIN genre AS G ON G.id = S.id_genre " + "INNER JOIN artist AS AR ON AR.id = AL.id_artist;";
@@ -82,6 +81,8 @@ public class DBUtils {
 			String genre = rs.getString("descr");
 			int year = rs.getInt("S.year");
 			String album = rs.getString("AL.title");
+			boolean top = rs.getBoolean("S.rate_top");
+			int id = rs.getInt("S.id");
 
 			if (rs.wasNull()) { // if song is a single
 				album = " ";
@@ -94,7 +95,8 @@ public class DBUtils {
 			best_song.setArtist(artist);
 			best_song.setAlbum(album);
 			best_song.setYear(year);
-			best_song.setIs_top(true);
+			best_song.setIs_top(top);
+			best_song.setID(id);
 
 			list.add(best_song);
 
@@ -106,7 +108,8 @@ public class DBUtils {
 
 		return null;
 	}
-
+	
+	
 	// RETUNR ID_GENRE
 	public static int Return_ID_genre(Connection conn, String genre) throws SQLException {
 		String sql = "SELECT id FROM genre WHERE descr = ?";
@@ -343,7 +346,7 @@ public class DBUtils {
 	}
 
 
-	// list playlist per user TEST
+	// list playlist per TEST (TO DELETE)
 	public static List<Playlist> test(Connection conn) throws SQLException {
 		String sql = "SELECT title "
 				+ "FROM playlist AS P INNER JOIN listen_to AS L ON P.id = id_playlist INNER JOIN users AS U ON U.id = id_user;";
@@ -423,6 +426,7 @@ public class DBUtils {
 		return id;
 	}
 	
+	//UPDATE ALBUM
 	public static void updateAlbum(Connection conn, int id, String title, String artist, int year) throws SQLException {
 		
 		int id_artist = Return_ID_artist(conn, artist);
@@ -444,6 +448,117 @@ public class DBUtils {
 		pstm.executeUpdate();
 	}
 	
+	//UPDATE SONG 
+	public static void updateSong(Connection conn, int id_song, String title, String artist, int year, String genre, Float duration, String album, boolean top) throws SQLException {
+		
+		int id_artist = Return_ID_artist(conn, artist);
+		int id_genre = Return_ID_genre(conn, genre);
+		int id_album = Return_ID_album(conn, album, artist, year);
+		
+		if (id_artist == -1) {
+			System.out.println("Artist not found! Cannot edit the album");
+			return;
+		}
+		if (id_genre == -1) {
+			System.out.println("No such genre found!");
+			return;
+		}
+		
+		String sql = "UPDATE song SET title = ? , year = ?, duration = ?, rate_top = ?, id_genre = ?  WHERE id= ?;";
+		
+		PreparedStatement pstm = conn.prepareStatement(sql);
+
+		pstm.setString(1, title);
+		pstm.setInt(2, year );
+		pstm.setFloat(3, duration);
+		pstm.setBoolean(4, top);
+		pstm.setInt(5,id_genre);
+		pstm.setInt(6,id_song);
+
+		pstm.executeUpdate();
+		
+		sql = "UPDATE has SET id_song = ? , id_artist = ?, id_album = ?;";
+		
+		pstm = conn.prepareStatement(sql);
+
+		pstm.setInt(1, id_song);
+		pstm.setInt(2, id_artist);
+		pstm.setInt(3, id_album );
+
+		pstm.executeUpdate();
+	}
+	
+	// RETUNR ID_SONG
+		public static int Return_ID_song(Connection conn, String title, int year, int id_genre, Float duration) throws SQLException {
+			String sql = "SELECT id FROM song WHERE title = ? AND year = ? AND id_genre = ? AND duration = ?;";
+			int id = -1;
+			
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setString(1, title);
+			pstm.setInt(2, year);
+			pstm.setInt(3, id_genre);
+			pstm.setFloat(4, duration);
+			
+			ResultSet rs = pstm.executeQuery();
+
+			if (rs.next()) {
+				id = rs.getInt("id");
+			}
+			
+			return id;
+		}
+	
+	//INSERT SONG 
+	public static void insertSong(Connection conn, String title, String artist, int year, String genre, Float duration, String album, boolean top) throws SQLException {
+		
+		int id_artist = Return_ID_artist(conn, artist);
+		int id_genre = Return_ID_genre(conn, genre);
+		int id_album = Return_ID_album(conn, album, artist, year);
+		
+		
+		if (id_artist == -1) {
+			System.out.println("Artist not found! Cannot edit the song");
+			return;
+		}
+
+		if (id_genre == -1) {
+			System.out.println("No such genre found! Cannot edit the song");
+			return;
+		}
+		
+		if (id_artist == -1) {
+			System.out.println("Album not found! Cannot edit the song");
+			return;
+		}
+		
+		
+		String sql = "INSERT INTO song (title, year, duration, rate_top, id_genre) VALUES (? , ?, ?, ?, ?);";
+		
+		PreparedStatement pstm = conn.prepareStatement(sql);
+
+		pstm.setString(1, title);
+		pstm.setInt(2, year );
+		pstm.setFloat(3, duration);
+		pstm.setBoolean(4, top);
+		pstm.setInt(5,id_genre);
+
+		pstm.executeUpdate();
+		
+		int id_song = Return_ID_song(conn, title, year, id_genre, duration);
+		
+		
+		sql = "INSERT INTO has (id_song, id_artist, id_album) VALUES (? , ?, ?);";
+		
+		pstm = conn.prepareStatement(sql);
+
+		pstm.setInt(1, id_song);
+		pstm.setInt(2, id_artist);
+		pstm.setInt(3, id_album );
+
+		pstm.executeUpdate();
+	}
+	
+	//DELETE ALBUM
 	public static void deleteAlbum(Connection conn, int id_album) throws SQLException {
 		String sql = "Delete From album where id = ?";
 
@@ -454,4 +569,14 @@ public class DBUtils {
 		pstm.executeUpdate();
 	}
 
+	//DELETE SONG
+	public static void deleteSong(Connection conn, int id_song) throws SQLException {
+		String sql = "Delete From song where id = ?";
+
+		PreparedStatement pstm = conn.prepareStatement(sql);
+
+		pstm.setInt(1, id_song);
+
+		pstm.executeUpdate();
+	}
 }

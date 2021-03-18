@@ -24,7 +24,8 @@
 	type='text/css' media='all' />
 </head>
 
-<body>
+<body style="background-image: url(resources/assets/img/vin2.jpg);"
+	class="background-properties">
 
 	<!-- Preloader -->
 	<div class="loader">
@@ -40,6 +41,7 @@
 		<!-- End preloader inner -->
 	</div>
 	<!-- End preloader-->
+
 	<!-- Start header-->
 	<header class="header default">
 		<div class=" left-part">
@@ -52,16 +54,16 @@
 		<div class="middle-part">
 			<div class="button" id="button-album">
 				<div id="circle"></div>
-				<a href="Album">Albums</a>
+				<a href="AlbumAdmin">Albums</a>
 			</div>
 			<div class="button" id="button-music"
 				style="background-color: #BFC0C0">
 				<div id="circle"></div>
-				<a href="">All music</a>
+				<a href="#">All music</a>
 			</div>
 			<div class="button" id="button-playlist">
 				<div id="circle"></div>
-				<a href="MyPlaylist">My playlists</a>
+				<a href="#">My playlists</a>
 			</div>
 		</div>
 		<!-- =============== END NAVIGATION MENU User Library ================ -->
@@ -70,7 +72,7 @@
 			<nav class="main-nav">
 				<ul class="main-menu list-inline">
 					<li><a href="index">Home</a></li>
-					<li><a href="Profile"><i class="icon-user"></i>Profile</a></li>
+					<li><a href="userList"><i class="icon-user"></i></a></li>
 				</ul>
 			</nav>
 		</div>
@@ -83,7 +85,7 @@
 			class="fa fa-minus"></i>
 		</a>
 		<div id="mesh-main-player" class="jp-jplayer"
-			data-audio-src="resources/assets/audio/flute.mp3"
+			data-audio-src="assets/audio/flute.mp3"
 			data-title="See right through ft. Fiora" data-artist="Tensnake"></div>
 
 		<div id="mesh-main-player-content" class="mesh-main-player"
@@ -128,86 +130,94 @@
 	</div>
 	<!-- =============== END PLAYER ================ -->
 
+	<!-- =========== ADD NEW ITEM =================== -->
+
+	<!-- =========== END ADD NEW ITEM =================== -->
 
 	<!-- =============== START LIST SONGS ================ -->
-	<section style="background-image: url(resources/assets/img/vin2.jpg);"
-		class="background-properties padding">
+	<section>
+
 		<div class="tableEvents">
-			<div class="container list_songs">
-				<div class="row">
-					<div class="col-sm-12">
-						<table>
-							<tr class="tableEventsTitle">
-								<th></th>
-								<th></th>
-								<th class="song">Song</th>
-								<th class="artist">Artist</th>
-								<th class="year">Year</th>
-								<th class="genre">Genre</th>
-								<th class="length">Length</th>
-								<th class="album">Album</th>
-							</tr>
-
-							<c:forEach items="${listAllSongs}" var="song">
-
-								<tr>
-									<form method="get">
-									<td class="add">
-										<div class="dropdown">
-											<button class="dropbtn">
-												<i class="fa fa-plus"></i>
-											</button>
-											<div class="dropdown-content">
-												<c:forEach items="${list_play}" var="playlist">
-													<button type="submit" formmethod="post">
-														<input type="hidden" id="title_playlist" name="title_playlist" value="${playlist.title}">
-														${playlist.title}
-													</button>
-												</c:forEach>
-											</div>
-										</div>
-
-									</td>
-									<td class="play">
-										<div class="trak-item" id="track-list"
-											data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/flute.mp3"
-											data-artist="${song.artist}"
-											data-thumbnail="assets/img/content/cover1.jpg">
-											<audio src="resources/assets/audio/flute.mp3" preload="none"
-												title=" ${song.title}"></audio>
-											<div class="play-pause-button" id="play-list">
-												<i style="font-size: 1.5rem" class="fa fa-play"></i>
-											</div>
-										</div>
-									</td>
-									<td class="music"><input type="hidden" id="title"
-										name="title" value="${song.title}"> <h7>${song.title}</h7>
-									</td>
-									<td class="singer"><input type="hidden" id="artist"
-										name="artist" value="${song.artist}"> <h7>${song.artist}</h7>
-									</td>
-									<td class="released"><input type="hidden" id="year"
-										name="year" value="${song.year}"> <h7>${song.year}</h7>
-									</td>
-									<td class="type"><input type="hidden" id="genre"
-										name="genre" value="${song.genre}"> <h7>${song.genre}</h7>
-									</td>
-									<td class="duration"><input type="hidden" id="duration"
-										name="duration" value="${song.duration}"> <h7>${song.duration}</h7>
-									</td>
-									<td class="collection"><input type="hidden" id="album"
-										name="album" value="${song.album}"> <h7>${song.album}</h7>
-									</td>
-									</form>
+		<form>
+			<div class="container paddingBottom">
+				<div class="add_item">
+					<button type="submit" formmethod="post" class="new_item" id="editable_info"
+						 name="action" value="add">ADD SONGS</button>
+				</div>
+		</form>
+				<div class="container list_songs">
+					<div class="row">
+						<div class="col-sm-12">
+							<table>
+								<tr class="tableEventsTitle">
+									<th></th>
+									<th></th>
+									<th class="song">Song</th>
+									<th class="artist">Artist</th>
+									<th class="year">Year</th>
+									<th class="genre">Genre</th>
+									<th class="length">Length</th>
+									<th class="album">Album</th>
+									<th></th>
 								</tr>
 
-							</c:forEach>
+								<c:forEach items="${listAllSongs}" var="song">
 
-						</table>
+
+									<tr>
+										<form method="get">
+											<td class="add fitwidth"><a href=""><i
+													class="fa fa-plus"></i></a></td>
+											<td class="play fitwidth">
+												<div class="trak-item" id="track-list"
+													data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/flute.mp3"
+													data-artist="Tensnake"
+													data-thumbnail="assets/img/content/cover1.jpg">
+													<audio src="assets/audio/flute.mp3" preload="none"
+														title=" Tensnake - See Right Through Ft. Fiora"></audio>
+													<div class="play-pause-button" id="play-list">
+														<i style="font-size: 1.5rem" class="fa fa-play"></i>
+													</div>
+												</div>
+											</td>
+											<td class="music"><input type="hidden" id="title"
+												name="title" value="${song.title}"> <h7>${song.title}</h7>
+											</td>
+											<td class="singer"><input type="hidden" id="artist"
+												name="artist" value="${song.artist}"> <h7>${song.artist}</h7>
+											</td>
+											<td class="released"><input type="hidden" id="year"
+												name="year" value="${song.year}"> <h7>${song.year}</h7>
+											</td>
+											<td class="type"><input type="hidden" id="genre"
+												name="genre" value="${song.genre}"> <h7>${song.genre}</h7>
+											</td>
+											<td class="duration"><input type="hidden" id="duration"
+												name="duration" value="${song.duration}"> <h7>${song.duration}</h7>
+											</td>
+											<td class="collection"><input type="hidden" id="album"
+												name="album" value="${song.album}"> <h7>${song.album}</h7>
+											</td>
+											<td><span class="edit">
+													<button type="submit" class="btn_op" formmethod="post"
+														name="action" value="submit">
+														<i class="fas fa-pen"></i>
+													</button>
+																						<!-- hidden textbox for storing the id parameter -->
+											<input class="short" type="hidden" id="top" name="top"
+												value="${song.is_top}">
+											<input class="short" type="hidden" id="ID" name="ID"
+												value="${song.ID}">
+												</td>
+										</form>
+									</tr>
+								</c:forEach>
+							</table>
+						</div>
+						<!-- end col-sm-12 -->
 					</div>
-					<!-- end col-sm-12 -->
+					<!-- end row -->
 				</div>
-				<!-- end row -->
 			</div>
 			<!-- end container -->
 		</div>
