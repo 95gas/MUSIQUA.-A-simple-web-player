@@ -18,25 +18,25 @@ import database_connection.MyUtils;
 import models.User;
 
 public class UserListServlet extends HttpServlet {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	public UserListServlet() {
 		super();
 	}
-	
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		Connection conn = MyUtils.getStoredConnection(request);	
+
+		Connection conn = MyUtils.getStoredConnection(request);
 		List<User> userList = null;
 		String errorString = null;
-		
+
 		try {
 			userList = DBUtils.listUser(conn);
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			errorString = e.getMessage();
@@ -45,7 +45,7 @@ public class UserListServlet extends HttpServlet {
 		// Store info in request attribute, before forward to views
         request.setAttribute("errorString", errorString);
         request.setAttribute("Userlist", userList);
-		
+
 		this.getServletContext().getRequestDispatcher("/WEB-INF/views/UserList.jsp").forward(request, response);
 	}
 
@@ -53,9 +53,9 @@ public class UserListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 			doGet(request, response);
-		 
-		
+
+
 	}
 }
