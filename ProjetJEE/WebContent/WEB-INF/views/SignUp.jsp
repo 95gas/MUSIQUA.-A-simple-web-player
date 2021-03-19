@@ -68,7 +68,7 @@
       </div>
       <div class="cell">
         <div class="label_field"><label for="password" class="color_label">Confirm your password</label></div>
-        <input type="text" autoComplete="confirm" name="confirm" name="confirm" placeholder="Insert the password again." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+        <input type="password" autoComplete="confirm" name="confirm" name="confirm" placeholder="Insert the password again." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
       </div>
       <!-- Music preference -->
       <div class="cell">

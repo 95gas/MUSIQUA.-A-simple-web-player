@@ -25,7 +25,7 @@
     <div class="right-part">
       <nav class="main-nav">
         <ul class="main-menu list-inline">
-          <li><a class="scroll list-inline-item" href="indexServlet">Home</a></li>
+          <li><a class="scroll list-inline-item" href="index">Home</a></li>
           <li class="block-helper">
             <a href="#" class="scroll">Help</a>
           </li>
@@ -116,7 +116,7 @@
           <div>
             <div class="row_log_in">
               <div class="col_log_in">
-                <a id="sign-up-link" class="btn btn-block btn-default" role="button" href="SignUpServlet">Sign up for Musiqua</a>
+                <a id="sign-up-link" class="btn btn-block btn-default" role="button" href="SignUp">Sign up for Musiqua</a>
               </div>
             </div>
           </div>

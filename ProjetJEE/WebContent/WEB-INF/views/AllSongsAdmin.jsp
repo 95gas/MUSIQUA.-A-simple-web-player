@@ -59,11 +59,11 @@
 			<div class="button" id="button-music"
 				style="background-color: #BFC0C0">
 				<div id="circle"></div>
-				<a href="#">All music</a>
+				<a href="AllSongs">All music</a>
 			</div>
 			<div class="button" id="button-playlist">
 				<div id="circle"></div>
-				<a href="#">My playlists</a>
+				<a href="MyPlaylist">My playlists</a>
 			</div>
 		</div>
 		<!-- =============== END NAVIGATION MENU User Library ================ -->
