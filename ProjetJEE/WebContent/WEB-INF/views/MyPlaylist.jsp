@@ -54,7 +54,7 @@
 		<div class="middle-part">
 			<div class="button" id="button-album">
 				<div id="circle"></div>
-				<a href="Album">Albums</a>
+				<a href="Albums">Albums</a>
 			</div>
 			<div class="button" id="button-music">
 				<div id="circle"></div>
@@ -63,7 +63,7 @@
 			<div class="button" id="button-playlist"
 				style="background-color: #BFC0C0">
 				<div id="circle"></div>
-				<a href="">My playlists</a>
+				<a href="MyPlaylist">My playlists</a>
 			</div>
 		</div>
 		<!-- =============== END NAVIGATION MENU User Library ================ -->

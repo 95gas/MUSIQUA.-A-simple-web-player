@@ -58,11 +58,15 @@
 			<div class="button" id="button-album"
 				style="background-color: #BFC0C0">
 				<div id="circle"></div>
-				<a href="">Albums</a>
+				<a href="Album">Albums</a>
 			</div>
 			<div class="button" id="button-music">
 				<div id="circle"></div>
 				<a href="AllSongsAdmin">All music</a>
+			</div>
+			<div class="button" id="button-playlist">
+				<div id="circle"></div>
+				<a href="MyPlaylist">My playlists</a>
 			</div>
 		</div>
 		<!-- end navigation menu User Library -->
@@ -88,7 +92,7 @@
 			<div class="aqura-filter-content list-albums">
 				<ul class="list-feature clearfix">
 					<c:forEach items="${list_album}" var="album">
-						
+
 					<form method="post">
 						<li class="col-md-3 col-sm-3 col-xs-12">
 							<div class="album-icon">
@@ -105,21 +109,21 @@
 									${album.artist}
 								</p>
 								<p style="word-spacing: 10px;">
-								<input type="hidden" id="album_duration" name="album_duration" value="${album.duration}">${album.duration}h 
-								- 
+								<input type="hidden" id="album_duration" name="album_duration" value="${album.duration}">${album.duration}h
+								-
 								<input type="hidden" id="album_year" name="album_year" value="${album.year}">${album.year}
 								</p>
 								<span class="edit" id="edit">
 									<button type="submit" class="btn_op" formmethod="post">
 										<i class="fas fa-pen"></i>
 									</button>
-								</span> 
+								</span>
 							</div> <!-- end name -->
 						</li>
 					</form>
 
 					</c:forEach>
-					
+
 				</ul>
 			</div>
 

@@ -68,9 +68,9 @@
       <div class="cell">
         <div class="label_field"><label for="password" class="color_label">Confirm your password</label></div>
         <input type="password" id="confirm_password" name="confirm_password" placeholder="Insert the password again." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
-		<div id='message'></div>      
+		<div id='message'></div>
       </div>
-      
+
       <!-- Music preference -->
       <div class="cell">
         <div class="label_field"><label for="music_type" class="color_label">What do you like to listen to?</label></div>
@@ -156,9 +156,9 @@
       </div>
     </form>
   </div>
-  
+
 	<script src="resources/js/lib/jquery.js"></script>
-	
+
 	<!-- javascript scripts -->
 	<script src="resources/js/script.js"></script>
 

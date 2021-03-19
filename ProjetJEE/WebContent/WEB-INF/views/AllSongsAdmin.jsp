@@ -59,7 +59,7 @@
 			<div class="button" id="button-music"
 				style="background-color: #BFC0C0">
 				<div id="circle"></div>
-				<a href="#">All music</a>
+				<a href="AllSongs">All music</a>
 			</div>
 		</div>
 		<!-- =============== END NAVIGATION MENU User Library ================ -->
@@ -79,8 +79,8 @@
 	<div class="main-music-player hide-player">
 		<a class="hide-player-button"> <i class="fa fa-plus"></i> <i
 			class="fa fa-minus"></i>
-		</a> 
-		
+		</a>
+
 		//some parameters just to show a possible implementation of a workingmusic player
 		<div id="mesh-main-player" class="jp-jplayer"
 			data-audio-src="resources/assets/audio/flute.mp3"
