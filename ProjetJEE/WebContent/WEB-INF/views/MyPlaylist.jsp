@@ -26,7 +26,7 @@
 	type='text/css' media='all' />
 </head>
 
-<body style="background-image: url(resources/assets/img/wall1.png);">
+<body style="background-image: url(resources/img/wall1.png);">
 		<!-- Preloader -->
 	<div class="loader">
 		<!-- Preloader inner -->
@@ -54,7 +54,7 @@
 		<div class="middle-part">
 			<div class="button" id="button-album">
 				<div id="circle"></div>
-				<a href="Albums">Albums</a>
+				<a href="Album">Albums</a>
 			</div>
 			<div class="button" id="button-music">
 				<div id="circle"></div>
@@ -95,7 +95,7 @@
 							<h3></h3>
 							<!-- <h3>#songs</h3>  -->
 							<a href="#"> <img class="animated"
-								src="resources/assets/img/playlist/1.jpg" alt="">
+								src="resources/img/playlist/1.jpg" alt="">
 							</a>
 							<ul class="block-social list-inline ">
 								<li class="list-inline-item mr-0"><a href="#"><i

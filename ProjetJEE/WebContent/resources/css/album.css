@@ -192,7 +192,7 @@
   width: 193px;
   height: 194px;
   float: left;
-  background: url(../assets/img/content/disk.png) no-repeat center center;
+  background: url(../img/content/disk.png) no-repeat center center;
   z-index: 9;
 }
 .list-albums .list-feature li .albumIcon1 .disk {
@@ -204,7 +204,7 @@
   width: 193px;
   height: 194px;
   float: left;
-  background: url(../assets/img/content/disk1.png) no-repeat center center;
+  background: url(../img/content/disk1.png) no-repeat center center;
   z-index: 9;
 }
 .list-albums .list-feature li .albumIcon2 .disk {
@@ -216,7 +216,7 @@
   width: 193px;
   height: 194px;
   float: left;
-  background: url(../assets/img/content/disk2.png) no-repeat center center;
+  background: url(../img/content/disk2.png) no-repeat center center;
   z-index: 9;
 }
 .list-albums .list-feature li .albumIcon3 .disk {
@@ -228,7 +228,7 @@
   width: 193px;
   height: 194px;
   float: left;
-  background: url(../assets/img/content/disk3.png) no-repeat center center;
+  background: url(../img/content/disk3.png) no-repeat center center;
   z-index: 9;
 }
 @media only screen and (max-width: 1025px) {

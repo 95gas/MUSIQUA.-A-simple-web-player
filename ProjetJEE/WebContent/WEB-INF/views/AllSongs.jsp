@@ -83,9 +83,9 @@
 			class="fa fa-minus"></i>
 		</a>
 		
-		//some parameters just to show a possible implementation of a working music player
+		<!--  some parameters just to show a possible implementation of a working music player -->
 		<div id="mesh-main-player" class="jp-jplayer"
-			data-audio-src="resources/assets/audio/flute.mp3"
+			data-audio-src="resources/audio/flute.mp3"
 			data-title="See right through ft. Fiora" data-artist="Tensnake"></div>
 
 		<div id="mesh-main-player-content" class="mesh-main-player"
@@ -119,7 +119,7 @@
 					</div>
 					<div class="right-player-side">
 						<div class="mesh-thumbnail">
-							<img src="assets/img/content/cover3.jpg" alt="">
+							<img src="resources/img/content/cover3.jpg" alt="">
 						</div>
 						<div class="mesh-title"></div>
 						<div class="mesh-artist"></div>
@@ -132,7 +132,7 @@
 
 
 	<!-- =============== START LIST SONGS ================ -->
-	<section style="background-image: url(resources/assets/img/vin2.jpg);"
+	<section style="background-image: url(resources/img/vin2.jpg);"
 		class="background-properties padding">
 		<div class="tableEvents">
 			<div class="container list_songs">
@@ -174,8 +174,8 @@
 										<div class="trak-item" id="track-list"
 											data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/flute.mp3"
 											data-artist="${song.artist}"
-											data-thumbnail="assets/img/content/cover1.jpg">
-											<audio src="resources/assets/audio/flute.mp3" preload="none"
+											data-thumbnail="resources/img/content/cover1.jpg">
+											<audio src="resources/audio/flute.mp3" preload="none"
 												title=" ${song.title}"></audio>
 											<div class="play-pause-button" id="play-list">
 												<i style="font-size: 1.5rem" class="fa fa-play"></i>

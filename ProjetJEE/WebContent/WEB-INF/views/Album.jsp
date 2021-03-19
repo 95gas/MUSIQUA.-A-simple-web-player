@@ -68,7 +68,7 @@
 
 		<!-- =============== START ALBUM CATALOG ================ -->
 		<section class="aquraFilter paddingGrid albumFilter" id="album-wall"
-			style="background-image: url('resources/assets/img/wall1.png'); background-repeat: round">
+			style="background-image: url('resources/img/wall1.png'); background-repeat: round">
 			<div class="container">
 
 				<!-- start filter -->
@@ -80,7 +80,7 @@
 							<li class="col-md-3 col-sm-3 col-xs-12">
 								<div class="album-icon">
 									<span class="thumbs-album"> <img width="270"
-										height="270" src="resources/assets/img/content/albumCover.png">
+										height="270" src="resources/img/content/albumCover.png">
 									</span> <span class="disk"></span>
 								</div> <!-- END ALBUM ICON -->
 								<div class="name">

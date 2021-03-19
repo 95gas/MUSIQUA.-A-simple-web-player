@@ -24,7 +24,7 @@
 	type='text/css' media='all' />
 </head>
 
-<body style="background-image: url(resources/assets/img/vin2.jpg);"
+<body style="background-image: url(resources/img/vin2.jpg);"
 	class="background-properties">
 
 	<!-- Preloader -->
@@ -68,7 +68,7 @@
 			<nav class="main-nav">
 				<ul class="main-menu list-inline">
 					<li><a href="index">Home</a></li>
-					<li><a href="UserList"><i class="icon-user"></i></a></li>
+					<li><a href="UserList"><i class="icon-user"></i>USER LIST</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -81,9 +81,9 @@
 			class="fa fa-minus"></i>
 		</a>
 
-		//some parameters just to show a possible implementation of a workingmusic player
+		<!--  some parameters just to show a possible implementation of a working music player -->
 		<div id="mesh-main-player" class="jp-jplayer"
-			data-audio-src="resources/assets/audio/flute.mp3"
+			data-audio-src="resources/audio/flute.mp3"
 			data-title="See right through ft. Fiora" data-artist="Tensnake"></div>
 
 		<div id="mesh-main-player-content" class="mesh-main-player"
@@ -170,8 +170,8 @@
 											<div class="trak-item" id="track-list"
 												data-audio="http://theme-brothers.com/wp-content/uploads/2016/06/flute.mp3"
 												data-artist="Tensnake"
-												data-thumbnail="assets/img/content/cover1.jpg">
-												<audio src="assets/audio/flute.mp3" preload="none"
+												data-thumbnail="resources/img/content/cover1.jpg">
+												<audio src="resources/audio/flute.mp3" preload="none"
 													title=" Tensnake - See Right Through Ft. Fiora"></audio>
 												<div class="play-pause-button" id="play-list">
 													<i style="font-size: 1.5rem" class="fa fa-play"></i>
