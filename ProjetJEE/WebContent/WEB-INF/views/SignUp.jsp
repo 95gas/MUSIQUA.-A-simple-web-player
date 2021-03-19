@@ -63,7 +63,7 @@
       </div>
       <div class="cell">
         <div class="label_field"><label for="password" class="color_label">Create a password</label></div>
-        <input type="password" autoComplete="new-password" name="password" name="password" placeholder="Create a password." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+        <input type="password" autoComplete="new-password" name="password" name="password" pattern=".{8,}" placeholder="Create a password." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
 
       </div>
       <div class="cell">
