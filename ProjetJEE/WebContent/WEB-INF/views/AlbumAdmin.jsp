@@ -64,10 +64,6 @@
 				<div id="circle"></div>
 				<a href="AllSongsAdmin">All music</a>
 			</div>
-			<div class="button" id="button-playlist">
-				<div id="circle"></div>
-				<a href="MyPlaylist">My playlists</a>
-			</div>
 		</div>
 		<!-- end navigation menu User Library -->
 
