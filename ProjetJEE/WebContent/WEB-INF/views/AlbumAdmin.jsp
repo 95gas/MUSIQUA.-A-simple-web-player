@@ -71,7 +71,7 @@
 			<nav class="main-nav">
 				<ul class="main-menu list-inline">
 					<li><a href="index">Home</a></li>
-					<li><a href="UserList"><i class="icon-user"></i></a></li>
+					<li><a href="UserList"><i class="icon-user"></i>User list</a></li>
 
 				</ul>
 			</nav>
