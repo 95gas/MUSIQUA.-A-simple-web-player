@@ -18,6 +18,7 @@ public class MySQLConnUtils {
 	public static Connection getMySQLConnection(String hostName, String dbName, String userName, String password)
 			throws SQLException, ClassNotFoundException {
 
+		//load the jdbc driver
 		Class.forName("com.mysql.cj.jdbc.Driver");
 
 		// URL Connection for MySQL:

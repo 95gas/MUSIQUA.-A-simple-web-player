@@ -53,14 +53,6 @@
               <i class="fas fa-pen"></i>
             </button>
           </span>
-          <span class="operation pad-right">
-            <button type="submit" class="btn pad-right-sm green confirm_name">
-              <i class="fas fa-check"></i>
-            </button>
-            <button type="submit" class="btn red cancel_name">
-              <i class="fas fa-times"></i>
-            </button>
-          </span>
           <span>
             <label for="lname" class="pad-right-sm">Last name</label>
             <input class="long" type="text" id="lname" name="lname">
@@ -68,14 +60,6 @@
           <span class="edit">
             <button type="submit" class="btn" id="editable_info" disabled="disabled">
               <i class="fas fa-pen"></i>
-            </button>
-          </span>
-          <span class="operation">
-            <button type="submit" class="btn pad-right-sm green confirm_name">
-              <i class="fas fa-check"></i>
-            </button>
-            <button type="submit" class="btn red cancel_name">
-              <i class="fas fa-times"></i>
             </button>
           </span>
         </form>
@@ -95,14 +79,6 @@
           <span class="edit">
             <button type="submit" class="btn" id="editable_info" disabled="disabled">
               <i class="fas fa-pen"></i>
-            </button>
-          </span>
-          <span class="operation">
-            <button type="submit" class="btn pad-right-sm green confirm_name">
-              <i class="fas fa-check"></i>
-            </button>
-            <button type="submit" class="btn red cancel_name">
-              <i class="fas fa-times"></i>
             </button>
           </span>
         </form>
@@ -126,14 +102,7 @@
               <i class="fas fa-pen"></i>
             </button>
           </span>
-          <span class="operation">
-            <button type="submit" class="btn pad-right-sm green confirm_name">
-              <i class="fas fa-check"></i>
-            </button>
-            <button type="submit" class="btn red cancel_name">
-              <i class="fas fa-times"></i>
-            </button>
-          </span>
+
 
           <!-- city -->
           <span class="pad-left">
@@ -145,14 +114,7 @@
               <i class="fas fa-pen"></i>
             </button>
           </span>
-          <span class="operation">
-            <button type="submit" class="btn pad-right-sm green confirm_name">
-              <i class="fas fa-check"></i>
-            </button>
-            <button type="submit" class="btn red cancel_name">
-              <i class="fas fa-times"></i>
-            </button>
-          </span>
+
 
           <!-- street name -->
           <span class="pad-left">
@@ -164,14 +126,7 @@
               <i class="fas fa-pen"></i>
             </button>
           </span>
-          <span class="operation">
-            <button type="submit" class="btn pad-right-sm green confirm_name">
-              <i class="fas fa-check"></i>
-            </button>
-            <button type="submit" class="btn red cancel_name">
-              <i class="fas fa-times"></i>
-            </button>
-          </span>
+
 
           <!-- street number -->
           <div class="new line" style="padding-top: 15px;">
@@ -184,31 +139,16 @@
                 <i class="fas fa-pen"></i>
               </button>
             </span>
-            <span class="operation">
-              <button type="submit" class="btn pad-right-sm green confirm_name">
-                <i class="fas fa-check"></i>
-              </button>
-              <button type="submit" class="btn red cancel_name">
-                <i class="fas fa-times"></i>
-              </button>
-            </span>
+
 
             <!-- CAP -->
             <span class="pad-left pad-top">
-              <label for="fname" class="pad-right-sm">CAP</label>
+              <label for="fname" class="pad-right-sm">Postcode</label>
               <input class="pad-right-sm short" type="text" id="CAP" name="CAP">
             </span>
             <span class="edit">
               <button type="submit" class="btn" id="editable_info" disabled="disabled">
                 <i class="fas fa-pen"></i>
-              </button>
-            </span>
-            <span class="operation">
-              <button type="submit" class="btn pad-right-sm green confirm_name">
-                <i class="fas fa-check"></i>
-              </button>
-              <button type="submit" class="btn red cancel_name">
-                <i class="fas fa-times"></i>
               </button>
             </span>
           </div>
@@ -229,14 +169,6 @@
           <span class="edit">
             <button type="submit" class="btn" id="editable_info" disabled="disabled">
               <i class="fas fa-pen"></i>
-            </button>
-          </span>
-          <span class="operation">
-            <button type="submit" class="btn pad-right-sm green confirm_name">
-              <i class="fas fa-check"></i>
-            </button>
-            <button type="submit" class="btn red cancel_name">
-              <i class="fas fa-times"></i>
             </button>
           </span>
         </form>
@@ -283,14 +215,6 @@
       <span class="edit">
         <button type="submit" class="btn" id="editable_info" disabled="disabled">
           <i class="fas fa-pen"></i>
-        </button>
-      </span>
-      <span class="operation">
-        <button type="submit" class="btn pad-right-sm green confirm_name">
-          <i class="fas fa-check"></i>
-        </button>
-        <button type="submit" class="btn red cancel_name">
-          <i class="fas fa-times"></i>
         </button>
       </span>
     </div>

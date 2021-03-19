@@ -26,6 +26,16 @@
 		<url-pattern>/addSong</url-pattern>
 	</servlet-mapping>
 
+		<servlet>
+		<description></description>
+		<servlet-name>ProfilePageServlet</servlet-name>
+		<servlet-class>servlets.ProfilePageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ProfilePageServlet</servlet-name>
+		<url-pattern>/ProfilePage</url-pattern>
+	</servlet-mapping>
+
 	<servlet>
 		<description></description>
 		<servlet-name>UserListServlet</servlet-name>
