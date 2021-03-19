@@ -82,6 +82,8 @@
 		<a class="hide-player-button"> <i class="fa fa-plus"></i> <i
 			class="fa fa-minus"></i>
 		</a>
+		
+		//some parameters just to show a possible implementation of a working music player
 		<div id="mesh-main-player" class="jp-jplayer"
 			data-audio-src="resources/assets/audio/flute.mp3"
 			data-title="See right through ft. Fiora" data-artist="Tensnake"></div>

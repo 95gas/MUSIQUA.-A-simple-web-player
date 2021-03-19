@@ -27,7 +27,21 @@
 </head>
 
 <body style="background-image: url(resources/assets/img/wall1.png);">
-
+		<!-- Preloader -->
+	<div class="loader">
+		<!-- Preloader inner -->
+		<div class="loader-inner">
+			<svg width="120" height="220" viewbox="0 0 100 100"
+				class="loading-spinner" version="1.1"
+				xmlns="http://www.w3.org/2000/svg">
+        <circle class="spinner" cx="50" cy="50" r="21" fill="#13181d"
+					stroke-width="2" />
+      </svg>
+		</div>
+		<!-- End preloader inner -->
+	</div>
+	<!-- End preloader-->
+	
 	<!-- Start header-->
 	<header class="header default">
 		<div class=" left-part">
@@ -124,13 +138,11 @@
 	</section>
 	<!-- =============== END FOOTER ================ -->
 
-	<!-- the library jquery has to be the first to be imported! otherwise we are encoutering some errors!
-        Hence, the order of libraries importation counts. -->
-	<!-- javascript libraries -->
-	<script src="lib/jquery.js"></script>
+		<!-- javascript libraries -->
+		<script src="resources/js/lib/jquery.js"></script>
 
-	<!-- javascript scripts -->
-	<script src="js/script.js"></script>
+		<!-- javascript scripts -->
+		<script src="resources/js/script.js"></script>
 
 </body>
 

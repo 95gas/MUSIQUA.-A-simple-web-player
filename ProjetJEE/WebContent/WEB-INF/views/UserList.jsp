@@ -61,10 +61,6 @@
 				<div id="circle"></div>
 				<a href="#">All music</a>
 			</div>
-			<div class="button" id="button-playlist">
-				<div id="circle"></div>
-				<a href="#">My playlists</a>
-			</div>
 		</div>
 		<!-- =============== END NAVIGATION MENU User Library ================ -->
 
@@ -133,7 +129,6 @@
 	<!-- =============== END FOOTER ================ -->
 
 	<script src="resources/js/lib/jquery.js"></script>
-
 
 	<!-- javascript scripts -->
 	<script src="resources/js/script.js"></script>

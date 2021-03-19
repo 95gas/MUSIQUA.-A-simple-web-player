@@ -204,8 +204,6 @@
 	</section>
 	<!-- =============== END FOOTER ================ -->
 
-	<!-- the library jquery has to be the first to be imported! otherwise we are encoutering some errors!
-Hence, the order of libraries importation counts. -->
 	<!-- javascript libraries -->
 	<script src="resources/js/lib/jquery.js"></script>
 	<script type="text/javascript" src="resources/js/lib/jquery.jplayer.js"></script>

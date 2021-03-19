@@ -28,106 +28,105 @@
 </head>
 
 <body>
-
-	<!-- Start header-->
-	<header class="header default">
-		<div class=" left-part">
-			<a class="logo" href="index">
-				<h2 class="mb-0 uppercase">musiqua.</h2>
-			</a>
-		</div>
-
-		<!-- ===============  NAVIGATION MENU User Library ================ -->
-		<div class="middle-part">
-			<div class="button" id="button-album"
-				style="background-color: #BFC0C0">
-				<div id="circle"></div>
-				<a href="">Albums</a>
+		<!-- Start header-->
+		<header class="header default">
+			<div class=" left-part">
+				<a class="logo" href="index">
+					<h2 class="mb-0 uppercase">musiqua.</h2>
+				</a>
 			</div>
-			<div class="button" id="button-music">
-				<div id="circle"></div>
-				<a href="AllSongs">All music</a>
+
+			<!-- ===============  NAVIGATION MENU User Library ================ -->
+			<div class="middle-part">
+				<div class="button" id="button-album"
+					style="background-color: #BFC0C0">
+					<div id="circle"></div>
+					<a href="">Albums</a>
+				</div>
+				<div class="button" id="button-music">
+					<div id="circle"></div>
+					<a href="AllSongs">All music</a>
+				</div>
+				<div class="button" id="button-playlist">
+					<div id="circle"></div>
+					<a href="MyPlaylist">My playlists</a>
+				</div>
 			</div>
-			<div class="button" id="button-playlist">
-				<div id="circle"></div>
-				<a href="MyPlaylist">My playlists</a>
+			<!-- =============== END NAVIGATION MENU User Library ================ -->
+
+			<div class="right-part">
+				<nav class="main-nav">
+					<ul class="main-menu list-inline">
+						<li><a href="index">Home</a></li>
+						<li><a href="ProfilePage"><i class="icon-user"></i>${user_session.getUsername()}</a></li>
+
+					</ul>
+				</nav>
 			</div>
-		</div>
-		<!-- =============== END NAVIGATION MENU User Library ================ -->
+		</header>
+		<!-- End header-->
 
-		<div class="right-part">
-			<nav class="main-nav">
-				<ul class="main-menu list-inline">
-					<li><a href="index">Home</a></li>
-					<li><a href="ProfilePage"><i class="icon-user"></i>${user_session.getUsername()}</a></li>
-
-				</ul>
-			</nav>
-		</div>
-	</header>
-	<!-- End header-->
-
-	<!-- =============== START ALBUM CATALOG ================ -->
-	<section class="aquraFilter paddingGrid albumFilter" id="album-wall"
-		style="background-image: url('resources/assets/img/wall1.png'); background-repeat: round">
-		<div class="container">
-
-			<!-- start filter -->
-			<div class="aqura-filter-content list-albums">
-				<ul class="list-feature clearfix">
-
-					<c:forEach items="${list_album}" var="album">
-
-						<li class="col-md-3 col-sm-3 col-xs-12">
-							<div class="album-icon">
-								<span class="thumbs-album"> <img width="270" height="270"
-									src="resources/assets/img/content/albumCover.png">
-								</span> <span class="disk"></span>
-							</div> <!-- END ALBUM ICON -->
-							<div class="name">
-								<h3>${album.name}</h3>
-								<p style="word-spacing: 5px;">
-									<i class="fas fa-microphone" style="font-size: 1rem"></i>
-									${album.artist}
-								</p>
-								<p style="word-spacing: 10px;">${album.duration}h - ${album.year}</p>
-							</div> <!-- end name -->
-						</li>
-
-					</c:forEach>
-				</ul>
-			</div>
-			<!-- end aqura-filter-cotent -->
-			<!-- end filter -->
-		</div>
-		<!-- end container -->
-	</section>
-	<!-- =============== END ALBUM CATALOG ================ -->
-
-	<!-- =============== START FOOTER ================ -->
-	<section style="background-color: #eeeeee;">
-		<div class="footer footerPadding bottom">
+		<!-- =============== START ALBUM CATALOG ================ -->
+		<section class="aquraFilter paddingGrid albumFilter" id="album-wall"
+			style="background-image: url('resources/assets/img/wall1.png'); background-repeat: round">
 			<div class="container">
-				<div class="row">
-					<div class="col-sm-4">
-						<div class="copyFooter">
-							<a>&copy; Musiqua.</a>
+
+				<!-- start filter -->
+				<div class="aqura-filter-content list-albums">
+					<ul class="list-feature clearfix">
+
+						<c:forEach items="${list_album}" var="album">
+
+							<li class="col-md-3 col-sm-3 col-xs-12">
+								<div class="album-icon">
+									<span class="thumbs-album"> <img width="270"
+										height="270" src="resources/assets/img/content/albumCover.png">
+									</span> <span class="disk"></span>
+								</div> <!-- END ALBUM ICON -->
+								<div class="name">
+									<h3>${album.name}</h3>
+									<p style="word-spacing: 5px;">
+										<i class="fas fa-microphone" style="font-size: 1rem"></i>
+										${album.artist}
+									</p>
+									<p style="word-spacing: 10px;">${album.duration}h-
+										${album.year}</p>
+								</div> <!-- end name -->
+							</li>
+
+						</c:forEach>
+					</ul>
+				</div>
+				<!-- end aqura-filter-cotent -->
+				<!-- end filter -->
+			</div>
+			<!-- end container -->
+		</section>
+		<!-- =============== END ALBUM CATALOG ================ -->
+
+		<!-- =============== START FOOTER ================ -->
+		<section style="background-color: #eeeeee;">
+			<div class="footer footerPadding bottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-4">
+							<div class="copyFooter">
+								<a>&copy; Musiqua.</a>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-	<!-- =============== END FOOTER ================ -->
+		</section>
+		<!-- =============== END FOOTER ================ -->
 
-	<!-- the library jquery has to be the first to be imported! otherwise we are encoutering some errors!
+		<!-- the library jquery has to be the first to be imported! otherwise we are encoutering some errors!
 Hence, the order of libraries importation counts. -->
-	<!-- javascript libraries -->
-	<script src="resources/js/lib/jquery.js"></script>
+		<!-- javascript libraries -->
+		<script src="resources/js/lib/jquery.js"></script>
 
-	<!-- javascript scripts -->
-	<script src="resources/js/script.js"></script>
-
+		<!-- javascript scripts -->
+		<script src="resources/js/script.js"></script>
 </body>
 
 </html>

@@ -28,6 +28,13 @@
             });
         }
     });
-
+    
+    //check password=confirm.password in signup page
+    $('#password, #confirm_password').on('keyup', function () {
+    	  if ($('#password').val() == $('#confirm_password').val()) {
+    	    $('#message').html('Passwords are matching').css('color', 'green');
+    	  } else 
+    	    $('#message').html('Passwords are not matching').css('color', 'red');
+    	});
     
 })(jQuery);

@@ -43,7 +43,7 @@
     <!-- Name and surname -->
     <div class="row">
       <div class="margin-top">
-        <form action="">
+        <form >
           <span class="pad-left">
             <label for="fname" class="pad-right-sm">First name</label>
             <input class="long" type="text" id="fname" name="fname">

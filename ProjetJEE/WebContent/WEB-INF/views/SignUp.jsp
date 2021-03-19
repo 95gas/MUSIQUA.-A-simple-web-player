@@ -36,7 +36,7 @@
     <form method="POST">
       <h3 class="text-style center-text">Sign up with your email address</h3>
       <div class="cell">
-        <div class="label_field"><label for="gender" class="color_label">Gender?</label></div>
+        <div class="label_field"><label for="gender" class="color_label">Gender</label></div>
         <div class="GenderSelect input_checkbox">
           <label class="container_checkbox"><input type="radio" name="gender" value="male" aria-invalid="false" class="male_check inner_checkbox_format"/><span class="indicator outer_checkbox"></span><span class="label_checkbox color_label_checkbox">Male</span></label>
           <label class="container_checkbox"><input type="radio" name="gender" value="female" aria-invalid="false" class="female_check inner_checkbox_format"/><span class="indicator outer_checkbox"></span><span class="label_checkbox color_label_checkbox">Female</span></label>
@@ -45,31 +45,32 @@
       </div>
       <div class="cell">
         <div class="label_field"><label for="email" class="color_label">Username</label></div>
-        <input type="text" id="username" name="username" placeholder="Enter your username." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+        <input type="text" id="username" name="username" placeholder="Enter your username." required aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
         <span class="erreur">${erreurs['username']}</span>
       </div>
       <div class="cell">
         <div class="label_field"><label for="email" class="color_label">Email</label></div>
-        <input type="text" id="email" name="email" placeholder="Enter your email." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
-        <span class="erreur">${erreurs['email']}</span>
+        <input type="text" id="email" name="email" placeholder="Enter your email." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
       </div>
       <div class="cell">
         <div class="label_field"><label for="email" class="color_label">First Name</label></div>
-        <input type="text" id="name" name="firstname" placeholder="Enter your first name." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+        <input type="text" id="firstname" name="firstname" placeholder="Enter your first name." aria-invalid="false" required class="input-box input_box_style some_settings_for_small_screen"/>
       </div>
       <div class="cell">
         <div class="label_field"><label for="email" class="color_label">Last Name</label></div>
-        <input type="text" id="name" name="lastname" placeholder="Enter your last name." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+        <input type="text" id="name" name="lastname" placeholder="Enter your last name." aria-invalid="false" required class="input-box input_box_style some_settings_for_small_screen"/>
       </div>
       <div class="cell">
         <div class="label_field"><label for="password" class="color_label">Create a password</label></div>
-        <input type="password" autoComplete="new-password" name="password" name="password" pattern=".{8,}" placeholder="Create a password." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+        <input type="password" id="password" name="password" pattern=".{8,}" placeholder="Create a password." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
 
       </div>
       <div class="cell">
         <div class="label_field"><label for="password" class="color_label">Confirm your password</label></div>
-        <input type="text" autoComplete="confirm" name="confirm" name="confirm" placeholder="Insert the password again." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Insert the password again." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+		<div id='message'></div>      
       </div>
+      
       <!-- Music preference -->
       <div class="cell">
         <div class="label_field"><label for="music_type" class="color_label">What do you like to listen to?</label></div>
@@ -106,14 +107,14 @@
       </div>
       <!-- birth date -->
       <div class="cell">
-        <div class="label_field"><label class="color_label">Your date of birth?</label></div>
+        <div class="label_field"><label class="color_label">Your date of birth</label></div>
         <div data-testid="dob-parent" class="date_container">
           <div data-testid="month" class="month style_month">
             <div class="cell no-bottom-pad">
               <div class="label_field"><label for="month" class="color_label">Month</label></div>
               <div class="selectMonth">
                 <select id="month" name="month" aria-invalid="false" class=" select_month">
-                  <option selected="" disabled="" value="">Month</option>
+                  <option value="">Month</option>
                   <option value="01">January</option>
                   <option value="02">February</option>
                   <option value="03">March</option>
@@ -133,13 +134,13 @@
           <div data-testid="day" class="day_container">
             <div class="cell no-bottom-pad">
               <div class="label_field"><label for="day" class="color_label">Day</label></div>
-              <input type="text" id="day" inputMode="numeric" maxLength="2" name="day" pattern="((0?[1-9])|([12][0-9])|(3[01]))" placeholder="DD" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+              <input type="number" id="day" inputMode="numeric" maxLength="2" name="day" pattern="((0?[1-9])|([12][0-9])|(3[01]))" placeholder="DD" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
             </div>
           </div>
           <div data-testid="year" class="year_container">
             <div class="cell no-bottom-pad">
               <div class="label_field"><label for="year" class="color_label">Year</label></div>
-              <input type="text" id="year" inputMode="numeric" maxLength="4" name="year"  placeholder="YYYY" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+              <input type="number" id="year" inputMode="numeric" maxLength="4" name="year"  placeholder="YYYY" pattern="(19[0-9]{2})|(200)[0-8]" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
             </div>
           </div>
         </div>
@@ -155,10 +156,11 @@
       </div>
     </form>
   </div>
+  
+	<script src="resources/js/lib/jquery.js"></script>
+	
+	<!-- javascript scripts -->
+	<script src="resources/js/script.js"></script>
 
-  <!-- javascript libraries -->
-  <script src="lib/jquery.js"></script>
-  <!-- javascript scripts -->
-  <script src="js/script.js"></script>
 </body>
 </html>
