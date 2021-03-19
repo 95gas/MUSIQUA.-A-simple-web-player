@@ -8,7 +8,7 @@ public class User {
 	private String firstname;
 	private String lastname;
 	private int birth_year;
-	private int birth_month;
+	private String birth_month;
 	private int birth_day;
 	private String gender;
 	private String country;
@@ -27,7 +27,7 @@ public class User {
 		
 	}
 	
-	public User(String username, String firstname, String lastname, int birth_year, int birth_month, int birth_day,
+	public User(String username, String firstname, String lastname, int birth_year, String birth_month, int birth_day,
 			String gender, String country, String city, String street, String street_number, int postcode, String email,
 			String psw, String facetoken, String appletoken, String gmailtoken, String role) {
 		super();
@@ -75,11 +75,11 @@ public class User {
 		this.birth_year = birth_year;
 	}
 
-	public int getBirth_month() {
+	public String getBirth_month() {
 		return birth_month;
 	}
 
-	public void setBirth_month(int birth_month) {
+	public void setBirth_month(String birth_month) {
 		this.birth_month = birth_month;
 	}
 

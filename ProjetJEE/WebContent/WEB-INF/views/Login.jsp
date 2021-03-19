@@ -73,7 +73,7 @@
           <label for="login-username" >
             Email address
           </label>
-          <input type="text" class="form-control" name="email" value="email" id="login-username" placeholder="Email address" autocapitalize="off">
+          <input type="text" class="form-control" name="email" id="login-username" placeholder="Email address" autocapitalize="off">
         </div>
       </div>
 
@@ -82,7 +82,7 @@
           <label for="login-password" >
             Password
           </label>
-          <input type="password" class="form-control" name="password" value="password" id="login-password" placeholder="Password"  autocomplete="off">
+          <input type="password" class="form-control" name="password" id="login-password" placeholder="Password"  autocomplete="off">
         </div>
       </div>
 

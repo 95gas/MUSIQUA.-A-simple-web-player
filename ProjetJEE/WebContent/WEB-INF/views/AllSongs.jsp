@@ -232,11 +232,12 @@
 	</section>
 	<!-- =============== END FOOTER ================ -->
 
-	<!-- javascript libraries -->
 	<script src="resources/js/lib/jquery.js"></script>
+	<script type="text/javascript" src="resources/js/lib/jquery.jplayer.js"></script>
 
 	<!-- javascript scripts -->
 	<script src="resources/js/script.js"></script>
+	<script src="resources/js/jPlayer.js"></script>
 
 </body>
 

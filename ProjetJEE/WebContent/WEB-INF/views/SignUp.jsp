@@ -45,63 +45,63 @@
       </div>
       <div class="cell">
         <div class="label_field"><label for="email" class="color_label">Username</label></div>
-        <input type="username" id="username" name="username" placeholder="Enter your username." value="username" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+        <input type="text" id="username" name="username" placeholder="Enter your username." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
         <span class="erreur">${erreurs['username']}</span>
       </div>
       <div class="cell">
-        <div class="label_field"><label for="email" class="color_label">Email?</label></div>
-        <input type="email" id="email" name="email" placeholder="Enter your email." value="email" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+        <div class="label_field"><label for="email" class="color_label">Email</label></div>
+        <input type="text" id="email" name="email" placeholder="Enter your email." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
         <span class="erreur">${erreurs['email']}</span>
       </div>
       <div class="cell">
         <div class="label_field"><label for="email" class="color_label">First Name</label></div>
-        <input type="name" id="name" name="name" placeholder="Enter your first name." value="firstname" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+        <input type="text" id="name" name="firstname" placeholder="Enter your first name." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
       </div>
       <div class="cell">
-        <div class="label_field"><label for="confirm" class="color_label">Last Name</label></div>
-        <input type="surname" id="surname" name="surname" pattern="" placeholder="Enter your last name." value="lastname" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+        <div class="label_field"><label for="email" class="color_label">Last Name</label></div>
+        <input type="text" id="name" name="lastname" placeholder="Enter your last name." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
       </div>
       <div class="cell">
         <div class="label_field"><label for="password" class="color_label">Create a password</label></div>
-        <input type="password" autoComplete="new-password" id="password" pattern=".{8,}" name="password" value="password" placeholder="Create a password." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
-        <span class="erreur">${erreurs['password']}</span>
+        <input type="password" autoComplete="new-password" name="password" name="password" placeholder="Create a password." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+
       </div>
       <div class="cell">
         <div class="label_field"><label for="password" class="color_label">Confirm your password</label></div>
-        <input type="confirm" autoComplete="confirm" id="confirm" pattern=".{8,}" name="confirm" placeholder="Insert the password again." value="confirm" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+        <input type="text" autoComplete="confirm" name="confirm" name="confirm" placeholder="Insert the password again." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
       </div>
       <!-- Music preference -->
       <div class="cell">
         <div class="label_field"><label for="music_type" class="color_label">What do you like to listen to?</label></div>
         <div class="music_preference input_checkbox">
-          <label class="container_checkbox"><input type="checkbox" name="house" value="house" aria-invalid="false" class="house inner_checkbox_format"/><span class="indicator outer_checkbox"></span><span class="label_checkbox color_label_checkbox">house</span></label>
-          <label class="container_checkbox"><input type="checkbox" name="pop" value="pop" aria-invalid="false" class="pop inner_checkbox_format"/><span class="indicator outer_checkbox"></span><span class="label_checkbox color_label_checkbox">pop</span></label>
-          <label class="container_checkbox"><input type="checkbox" name="metal" value="metal" aria-invalid="false" class="metal inner_checkbox_format"/><span class="indicator outer_checkbox"></span><span class="label_checkbox color_label_checkbox">metal</span></label>
-          <label class="container_checkbox"><input type="checkbox" name="classical" value="classical" aria-invalid="false" class="classical inner_checkbox_format"/><span class="indicator outer_checkbox"></span><span class="label_checkbox color_label_checkbox">classical</span></label>
-          <label class="container_checkbox"><input type="checkbox" name="jazz" value="jazz" aria-invalid="false" class="jazz inner_checkbox_format"/><span class="indicator outer_checkbox"></span><span class="label_checkbox color_label_checkbox">jazz</span></label>
+          <label class="container_checkbox"><input type="checkbox" name="chk" value="house" aria-invalid="false" class="house inner_checkbox_format"/><span class="indicator outer_checkbox"></span><span class="label_checkbox color_label_checkbox">house</span></label>
+          <label class="container_checkbox"><input type="checkbox" name="chk" value="pop" aria-invalid="false" class="pop inner_checkbox_format"/><span class="indicator outer_checkbox"></span><span class="label_checkbox color_label_checkbox">pop</span></label>
+          <label class="container_checkbox"><input type="checkbox" name="chk" value="metal" aria-invalid="false" class="metal inner_checkbox_format"/><span class="indicator outer_checkbox"></span><span class="label_checkbox color_label_checkbox">metal</span></label>
+          <label class="container_checkbox"><input type="checkbox" name="chk" value="classical" aria-invalid="false" class="classical inner_checkbox_format"/><span class="indicator outer_checkbox"></span><span class="label_checkbox color_label_checkbox">classical</span></label>
+          <label class="container_checkbox"><input type="checkbox" name="chk" value="jazz" aria-invalid="false" class="jazz inner_checkbox_format"/><span class="indicator outer_checkbox"></span><span class="label_checkbox color_label_checkbox">jazz</span></label>
         </div>
       </div>
       <!-- Billing address -->
       <div>
         <div class="cell">
           <div class="label_field"><label for="country" class="color_label">Country</label></div>
-          <input type="text" id="country" name="country" placeholder="Enter your home country." value="country" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+          <input type="text" id="country" name="country" placeholder="Enter your home country." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
         </div>
         <div class="cell">
           <div class="label_field"><label for="displayname" class="color_label">City</label></div>
-          <input type="text" id="city" name="city" placeholder="Enter your home city." value="city" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+          <input type="text" id="city" name="city" placeholder="Enter your home city." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
         </div>
         <div class="cell">
           <div class="label_field"><label for="displayname" class="color_label">Address</label></div>
-          <input type="text" id="address" name="address" placeholder="Enter your address." value="address" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+          <input type="text" id="address" name="address" placeholder="Enter your address." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
         </div>
         <div class="cell">
           <div class="label_field"><label for="displayname" class="color_label">House number</label></div>
-          <input type="text" id="number" name="number" placeholder="Enter your house number." value="house" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+          <input type="text" id="number" name="number" placeholder="Enter your house number." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
         </div>
         <div class="cell">
-          <div class="label_field"><label for="displayname" class="color_label">CAP</label></div>
-          <input type="text" id="CAP" name="cap" placeholder="Enter your postecode." value="postecode" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+          <div class="label_field"><label for="displayname" class="color_label">PosteCode</label></div>
+          <input type="text" id="CAP" name="postecode" placeholder="Enter your postecode." aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
         </div>
       </div>
       <!-- birth date -->
@@ -133,13 +133,13 @@
           <div data-testid="day" class="day_container">
             <div class="cell no-bottom-pad">
               <div class="label_field"><label for="day" class="color_label">Day</label></div>
-              <input type="text" id="day" inputMode="numeric" maxLength="2" name="day" pattern="((0?[1-9])|([12][0-9])|(3[01]))" placeholder="DD" value="day" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+              <input type="text" id="day" inputMode="numeric" maxLength="2" name="day" pattern="((0?[1-9])|([12][0-9])|(3[01]))" placeholder="DD" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
             </div>
           </div>
           <div data-testid="year" class="year_container">
             <div class="cell no-bottom-pad">
               <div class="label_field"><label for="year" class="color_label">Year</label></div>
-              <input type="text" id="year" inputMode="numeric" maxLength="4" name="year" pattern="(19[0-9]{2})|(200)[0-8]" placeholder="YYYY" value="year" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
+              <input type="text" id="year" inputMode="numeric" maxLength="4" name="year"  placeholder="YYYY" aria-invalid="false" class="input-box input_box_style some_settings_for_small_screen"/>
             </div>
           </div>
         </div>

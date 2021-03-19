@@ -95,7 +95,7 @@ public class AlbumAdminServlet extends HttpServlet {
 
 			try {
 				DBUtils.deleteAlbum(conn, id);
-				System.out.println("");
+
 			} catch (SQLException e) {
 
 				e.printStackTrace();

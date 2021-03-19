@@ -106,7 +106,7 @@
 
 	<!-- =============== START FOOTER ================ -->
 	<section style="background-color: #eeeeee;">
-		<div class="footer footerPadding">
+		<div class="footer footerPadding bottom">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-4">
@@ -116,7 +116,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
 		</div>
 	</section>
 	<!-- =============== END FOOTER ================ -->

@@ -555,10 +555,27 @@ public class DBUtils {
 
 		pstm.executeUpdate();
 	}
+	
+	public static int find_ID_role(Connection conn, String role) throws SQLException {
+		String sql = "Select id From roles where type = ?";
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		pstm.setString(1, role);
+
+		ResultSet rs = pstm.executeQuery();
+		int id = -1;
+
+		if (rs.next()) {
+			id = rs.getInt("id");
+		}
+
+		return id;
+		
+	}
 
 	// ADD User
 	public static int insertUser(Connection conn, User user) throws SQLException {
-		String sql = "Insert into users values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "Insert into users(username, first_name, last_name, birth_year, birth_month, birth_day, gender, country, city, street, street_number, postal_code, email, psw, facebook_id, apple_id, gmail_id, id_role )"
+				+ " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
@@ -566,7 +583,7 @@ public class DBUtils {
 		String firstname = user.getFirstname();
 		String lastname = user.getLastname();
 		int birth_year = user.getBirth_year();
-		int birth_month = user.getBirth_month();
+		String birth_month = user.getBirth_month();
 		int birth_day = user.getBirth_day();
 		String gender = user.getGender();
 		String country = user.getCountry();
@@ -579,13 +596,14 @@ public class DBUtils {
 		String facetoken = user.getFacetoken();
 		String appletoken = user.getAppletoken();
 		String gmailtoken = user.getGmailtoken();
-		String role = user.getRole();
+		
+		int id_role_default = 1;
 
 		pstm.setString(1, username);
 		pstm.setString(2, firstname);
 		pstm.setString(3, lastname);
 		pstm.setInt(4, birth_year);
-		pstm.setInt(5, birth_month);
+		pstm.setString(5, birth_month);
 		pstm.setInt(6, birth_day);
 		pstm.setString(7, gender);
 		pstm.setString(8, country);
@@ -598,7 +616,7 @@ public class DBUtils {
 		pstm.setString(15, facetoken);
 		pstm.setString(16, appletoken);
 		pstm.setString(17, gmailtoken);
-		pstm.setString(18, role);
+		pstm.setInt(18, id_role_default);
 
 		return pstm.executeUpdate();
 
@@ -641,7 +659,7 @@ public class DBUtils {
 	}
 
 	public static void deleteAlbum(Connection conn, int id_album) throws SQLException {
-		String sql = "Delete From song where id = ?";
+		String sql = "Delete From album where id = ?";
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
 		pstm.setInt(1, id_album);
