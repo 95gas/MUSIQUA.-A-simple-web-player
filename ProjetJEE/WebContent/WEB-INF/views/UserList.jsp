@@ -24,7 +24,7 @@
 	type='text/css' media='all' />
 </head>
 
-<body  style="background-image: url(resources/assets/img/vin2.jpg);"
+<body  style="background-image: url(resources/img/vin2.jpg);"
 		class="background-properties padding2">
 
 	<!-- Preloader -->
