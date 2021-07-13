@@ -1,0 +1,4 @@
+log out option
+keep session alive
+better css
+improve network performance ( connection to mysql ) 
