@@ -6,7 +6,20 @@
 
 ## Introduction
 
-Here we present our project about the implementation of a web music player realized for the course Web Programming at ENSSAT ( Lannion ). Our project consists of the following feature:
+Here we present our project about the implementation of a web music player realized for the course Web Programming at ENSSAT ( in Lannion, France ). 
+
+### Stackholders
+There are three kind of users involved in the use of the web player:
+* Customer, the normal user of the application. 
+* tAdministrator: can edit the info of the clients.
+* Music administrator: can edit the music library.
+
+### Features
+Our project consists of the following feature:
+* Log in page
+* Sign up page
+* 
+
 
 
 ---
