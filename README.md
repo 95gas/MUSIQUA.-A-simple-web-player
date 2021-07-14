@@ -9,7 +9,7 @@
 Here we present our project about the implementation of a web music player realized for the course Web Programming at ENSSAT ( in Lannion, France ). The project has been developed by exploiting the JEE technology and designed by taking into account the MDV ( Model View Controller ) software design pattern.
 
 ### Stackholders
-There are three kind of users involved in the use of the web player:
+There are three kinds of users involved in the use of our web player:
 * Customer, the normal user of the application. 
 * Administrator: can edit the info of the clients.
 * Music administrator: can edit the music library.
@@ -18,7 +18,7 @@ For every kind of user the features offered by the app are differents. The inter
 
 ### Features
 Our project consists of the following feature:
-* Top songs showed at the home page.
+* Top songs shown at the home page.
 ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/topsongs.png)
 * Log in page
   ![Image of calendar view]( https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/login.png)
