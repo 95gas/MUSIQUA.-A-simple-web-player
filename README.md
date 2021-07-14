@@ -8,17 +8,32 @@
 
 Here we present our project about the implementation of a web music player realized for the course Web Programming at ENSSAT ( in Lannion, France ). 
 
-### Stackholders
+#### Stackholders
 There are three kind of users involved in the use of the web player:
 * Customer, the normal user of the application. 
 * tAdministrator: can edit the info of the clients.
 * Music administrator: can edit the music library.
 
-### Features
+For every kind of user the features offered by the app are differents. The interface to show is decided at the logging phase by checking the identity of the user. 
+
+#### Features
 Our project consists of the following feature:
+* Top songs showed at the home page.
+![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/topsongs.png)
 * Log in page
+  ![Image of calendar view]( https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/login.png)
 * Sign up page
-* 
+ ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/signup.png)
+* Music library page
+  ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/album clients.png)
+  
+  ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/listmusic_client.png)
+  
+  ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/myplaylist_client.png)
+* Profile page
+* For admins:
+** List of the users
+** Page for managing the music library ( add, delete and rename )
 
 
 
