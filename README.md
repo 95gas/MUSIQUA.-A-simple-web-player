@@ -25,11 +25,11 @@ Our project consists of the following feature:
 * Sign up page
  ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/signup.png)
 * Music library page
-  ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/album clients.png)
+  ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/albumClients.png)
   
-  ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/listmusic_client.png)
-  
-  ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/myplaylist_client.png)
+  ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/listmusicClient.png)
+ 
+  ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/myplaylistClient.png)
 * Profile page
 * For admins:
 ** List of the users
