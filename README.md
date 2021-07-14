@@ -6,12 +6,12 @@
 
 ## Introduction
 
-Here we present our project about the implementation of a web music player realized for the course Web Programming at ENSSAT ( in Lannion, France ). 
+Here we present our project about the implementation of a web music player realized for the course Web Programming at ENSSAT ( in Lannion, France ). The project has been developed by exploiting the JEE technology and designed by taking into account the MDV ( Model View Controller ) software design pattern.
 
 #### Stackholders
 There are three kind of users involved in the use of the web player:
 * Customer, the normal user of the application. 
-* tAdministrator: can edit the info of the clients.
+* Administrator: can edit the info of the clients.
 * Music administrator: can edit the music library.
 
 For every kind of user the features offered by the app are differents. The interface to show is decided at the logging phase by checking the identity of the user. 
@@ -24,33 +24,42 @@ Our project consists of the following feature:
   ![Image of calendar view]( https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/login.png)
 * Sign up page
  ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/signup.png)
-* Music library page
-  ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/albumClients.png)
+* Music library page:
+  * ALbum page
+  ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/Client%20interface/albumClient.png)
   
-  ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/listmusicClient.png)
+   * List music
+   ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/Client%20interface/listmusicClient.png)
  
-  ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/myplaylistClient.png)
+   * List playlists
+    ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/Client%20interface/myplaylistClient.png)
+    
 * Profile page
 * For admins:
-** List of the users
-** Page for managing the music library ( add, delete and rename )
+  * List of the users
+  * Page for managing the music library ( add, delete and rename ). The operations are intended both for the albums and the list of the songs. 
 
+More pictures of the interfaces are placed in the folder 'Interfaces'.
 
 
 ---
 
 ## Technologies
 FRONTEND:
-* Vue.JS  v3.0.0
-* [v-calendar](https://vcalendar.io/) package - For rendering the calendar.
-* [Vue-Socket.io-Extended](https://github.com/probil/vue-socket.io-extended/tree/alpha) package - For implementing the chat.
+* Javacript
+* jQuery
+* jPlayer for the playing of the music. 
 
 BACKEND:
-* Node.JS v14.16.0
-* [LowDB](https://github.com/typicode/lowdb) database - For storing the messages.
-* [socket-io](https://www.npmjs.com/package/socket.io) - For reading the messages sent on the chat.
-* [Node-ical](https://www.npmjs.com/package/node-ical) - For reading the ics file from URL.
-* [ical-generator](https://www.npmjs.com/package/ical-generator) - For generate the ics file from URL.
+* Java EE
+* MySQL, for storing the data application
+
+---
+
+
+## Database ( relational schemda )
+![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/DBB/relational%20diagram.png)
+
 
 ---
 
