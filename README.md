@@ -54,18 +54,25 @@ BACKEND:
 * Java EE
 * MySQL, for storing the data application
 
+DEVELOPMENT:
+* Eclipse
+* Tomcat v9.0
+* JDK v16
+
 ---
 
 
-## Database ( relational schemda )
+## Database ( relational schema )
 ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/DBB/relational%20diagram.png)
 
 
 ---
 
-## Deployment over Tomcat
-For all the web hosting platforms you will be asked for creating a profile. 
-Before starting, create two new repositories on your github account: one for the app and one for the server. Place in the respective repository the files included in the 'app' folder and the ones in the 'server' folder.  
+## Deployment over Tomcat v 9.0
+Follow the following steps to deploy ( test ) the application over Tomcat v9.0:
+1. [Install SDK V16](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html)
+2. Install Tomcat v9.0 ( later versions are not working! ). In the installation process select the jdk previously installed by selecting its installation folder.
+3. 
 
 
 ---
