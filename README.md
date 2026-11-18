@@ -1,6 +1,6 @@
 # MUSIQUA - A web music player
 
- ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/home.png)
+ ![Image of calendar view](https://github.com/95gas/MUSIQUA.-A-simple-web-player/blob/main/Interfaces/home.png)
  
 ---
 
@@ -63,7 +63,7 @@ DEVELOPMENT:
 
 
 ## Database ( relational schema )
-![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/DBB/relational%20diagram.png)
+![Image of calendar view](https://github.com/95gas/MUSIQUA.-A-simple-web-player/blob/main/DBB/relational%20diagram.png)
 
 
 ---
@@ -74,7 +74,7 @@ Follow the following steps to deploy ( test ) the application over Tomcat v9.0:
 2. Install Tomcat v9.0 ( later versions are not working! ). In the installation process 
    * Set the name and password for an admin. Remember them since you will need it later. 
    * Select the jdk previously installed by selecting its installation folder.
-   ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Docs/sdkTomcatInstallation.png)
+   ![Image of calendar view](https://github.com/95gas/MUSIQUA.-A-simple-web-player/blob/main/Docs/sdkTomcatInstallation.png)
    
 4. Run the server Tomcat v9.0 and go to http://localhost:8080/manager/html/. You migh be asked to authonticate yourself. Insert the credential set earlier. 
 5. In the section 'Deploy', select the .zip file of the project ( it is contained inside the 'Delivery ( WPA + report )' folder ). 
