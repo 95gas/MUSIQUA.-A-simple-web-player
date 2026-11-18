@@ -19,20 +19,20 @@ For every kind of user the features offered by the app are differents. The inter
 ### Features
 Our project consists of the following feature:
 * Top songs shown at the home page.
-![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/topsongs.png)
+![Image of calendar view](https://github.com/95gas/MUSIQUA.-A-simple-web-player/blob/main/Interfaces/topsongs.png)
 * Log in page
-  ![Image of calendar view]( https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/login.png)
+  ![Image of calendar view]( https://github.com/95gas/MUSIQUA.-A-simple-web-player/blob/main/Interfaces/login.png)
 * Sign up page
- ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/signup.png)
+ ![Image of calendar view](https://github.com/95gas/MUSIQUA.-A-simple-web-player/blob/main/Interfaces/signup.png)
 * Music library page:
   * ALbum page
-  ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/Client%20interface/albumClient.png)
+  ![Image of calendar view](https://github.com/95gas/MUSIQUA.-A-simple-web-player/blob/main/Interfaces/Client%20interface/albumClient.png)
   
    * List music
-   ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/Client%20interface/listmusicClient.png)
+   ![Image of calendar view](https://github.com/95gas/MUSIQUA.-A-simple-web-player/blob/main/Interfaces/Client%20interface/listmusicClient.png)
  
    * List playlists
-    ![Image of calendar view](https://github.com/AAsmaou/ProjetJEETeam01/blob/main/Interfaces/Client%20interface/myplaylistClient.png)
+    ![Image of calendar view](https://github.com/95gas/MUSIQUA.-A-simple-web-player/blob/main/Interfaces/Client%20interface/myplaylistClient.png)
     
 * Profile page
 * For admins:
